@@ -64,10 +64,7 @@
                     </div>
                     <div class="card-toolbar">
                         <!--begin::Button-->
-                        <a href="{{url('roles')}}" style="margin: 6px"
-                           class="btn btn-secondary font-weight-bolder">
-                            &nbsp;&nbsp;<i class="fa fa-lock"></i>
-                            {{__('lang.roles')}}</a>
+
                         <button style="margin: 6px" type="button" data-toggle="modal"
                                 data-toggle="modal" data-target="#kt_modal_5"
                                 class="btn btn-success font-weight-bolder">
@@ -75,7 +72,7 @@
 
                             {{__('lang.search')}}</button>
 
-                        @if (Auth::guard('admins')->user()->can('AddEditDelete'))
+                        @if (Auth::guard('admins')->check())
                             <button type="button" data-toggle="modal" data-toggle="modal" data-target="#kt_modal_4"
                                     class="btn btn-primary font-weight-bolder">
             <span class="svg-icon svg-icon-md">
@@ -122,10 +119,10 @@
                             <th class="headerr">{{__('lang.email')}} </th>
                             <th class="headerr">{{__('lang.phone')}} </th>
                             <th class="headerr">{{__('lang.address')}} </th>
-                            @if (Auth::guard('admins')->user()->can('ActiveDeactive'))
+                            @if (Auth::guard('admins')->check())
                                 <th class="headerr">{{__('lang.Users_active')}} </th>
                             @endif
-                            @if (Auth::guard('admins')->user()->can('AddEditDelete'))
+                            @if (Auth::guard('admins')->check())
 
                                 <th class="headerr"> {{__('lang.Users_Edit')}}  </th>
                             @endif
@@ -148,7 +145,7 @@
                             <td>{{$User->phone}}</td>
                             <td>{{$User->address}}</td>
 
-                            @if (Auth::guard('admins')->user()->can('ActiveDeactive'))
+                            @if (Auth::guard('admins')->check())
                                 <td>
                     <span class="switch switch-sm switchery-demo">
                         <label>
@@ -159,7 +156,7 @@
                        </span>
                                 </td>
                             @endif
-                            @if (Auth::guard('admins')->user()->can('AddEditDelete'))
+                            @if (Auth::guard('admins')->check())
                                 <td nowrap="nowrap">
                                     <a class="btn btn-success btn-sm btn-clean btn-icon btn-icon-md edit-Advert"
                                        data-id="{{$User->id}}" data-original-title="{{__('lang.Users_Edit')}}"
@@ -271,17 +268,6 @@
                                    placeholder="{{__('lang.password')}}">
                         </div>
 
-                        <div class="form-group">
-                            <label>{{trans('lang.roles')}}</label>
-                            <div class="col-sm-12">
-                                <select name="role" class="form-control">
-                                    <option value="">{{trans('lang.choose_role')}}</option>
-                                    @foreach(\Spatie\Permission\Models\Role::all() as $role)
-                                        <option value="{{$role->id}}">{{$role->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label class="col-xl-3 col-lg-3 col-form-label">{{__('lang.image')}}</label>

@@ -79,3 +79,7 @@ Route::group(['middleware' => 'web'], function () {
 Route::post('/Create_Users', [UserController::class, 'store'])->middleware('Admin');;
 Route::get('/Delete_Users', [UserController::class, 'delete'])->middleware('Admin');;
 Route::post('/Update_Users', [UserController::class, 'update'])->middleware('Admin');;
+
+Route::post('/Create_Admins', [\App\Http\Controllers\Admin\AdminController::class, 'store'])->middleware('Admin');;
+Route::get('/Delete_Admins', [\App\Http\Controllers\Admin\AdminController::class, 'delete'])->middleware('Admin');;
+Route::post('/Update_Admins', [\App\Http\Controllers\Admin\AdminController::class, 'update'])->middleware('Admin');;

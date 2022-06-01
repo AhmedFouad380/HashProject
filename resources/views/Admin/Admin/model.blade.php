@@ -30,17 +30,7 @@
         <label>{{__('lang.password')}}  </label>
         <input  type="text"   style="-webkit-text-security: square;"    class="form-control form-control-solid" name="password"   required placeholder="{{__('lang.password')}}" >
     </div>
-    <div class="form-group">
-        <label >{{trans('lang.roles')}}</label>
-        <div class="col-sm-12">
-            <select name="role" class="form-control">
-                <option value="">{{trans('lang.choose_role')}}</option>
-                @foreach(\Spatie\Permission\Models\Role::all() as $role)
-                    <option @if($User->roles->first()) @if($User->roles->first()->id == $role->id) selected @endif @endif value="{{$role->id}}">{{$role->name}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
+   g
 
     <div class="form-group row">
         <label class="col-xl-3 col-lg-3 col-form-label">@if(Request::segment(1) == 'ar') الصورة   @else  image @endif</label>

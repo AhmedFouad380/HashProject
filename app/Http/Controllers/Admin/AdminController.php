@@ -155,7 +155,7 @@ class AdminController extends Controller
 
         public function logout()
         {
-            if (Auth::guard('admins')->check() || Auth::guard('suppliers')->check()) {
+            if (Auth::guard('admins')->check() || Auth::guard('web')->check()) {
                 auth_login()->logout();
                 return redirect('/admin/login');
             }else {
