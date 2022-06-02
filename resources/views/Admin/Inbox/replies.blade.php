@@ -147,9 +147,14 @@
                                                     class="font-weight-bold text-muted mx-2">{{\Carbon\Carbon::parse($Users->created_at)->translatedFormat('M d Y h:i')}}</div>
                                             </div>
                                         </div>
+
                                         <!--end::Message Heading-->
                                         <div class="card-spacer-x py-3 toggle-off-item">
-                                            {!! $Users->message  !!}
+
+                                            <div>
+                                                <span id="message">{!! $Users->message  !!}</span>
+
+                                            </div>
                                             <br>
                                             <br>
                                             <div class="card-spacer-x  toggle-off-item">
@@ -164,7 +169,8 @@
                                                     @endif
                                                     @if($Users->is_order == 1)
                                                         <div class="col-lg-3">
-                                                            <a href="{{url('pending-orders',$Users->order->id)}}" class="btn btn-info"><i
+                                                            <a href="{{url('pending-orders',$Users->order->id)}}"
+                                                               class="btn btn-info"><i
                                                                     class="fa fa-mail-bulk"></i>{{trans('lang.order')}}
                                                             </a>
                                                         </div>
