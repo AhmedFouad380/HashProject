@@ -16,7 +16,7 @@ class checkAuthAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Aut)
+
         return $next($request);
     }
 }

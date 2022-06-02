@@ -43,7 +43,7 @@ class AdminController extends Controller
     {
         if (Auth::guard('admins')->check()) {
             $User = Admin::find(Auth::guard('admins')->user()->id);
-        } elseif (Auth::guard('suppliers')->check()) {
+        } elseif (Auth::check()) {
             $User = User::find(Auth::user()->id);
 
         } else {
@@ -133,7 +133,7 @@ class AdminController extends Controller
         $User->phone = $request->phone;
         $User->email = $request->email;
         $User->address = $request->address;
-        $User->password = Hash::make($request->password);
+        $User->password = $request->password;
 
 
         if ($request->file('image')) {
@@ -173,7 +173,7 @@ class AdminController extends Controller
 
         if (Auth::guard('admins')->check()) {
             $User = Admin::find($request->id);
-        } elseif (Auth::guard('suppliers')->check()) {
+        } elseif (Auth::check()) {
             $User = User::find($request->id);
 
         } else {

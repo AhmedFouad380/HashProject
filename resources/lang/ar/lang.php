@@ -173,11 +173,11 @@ return [
     'paid' => 'تم الدفع',
     'not_paid' => 'لم يتم الدفع',
     'status' => 'الحالة',
-   'workDay' => 'يوم عمل ',
+    'workDay' => 'يوم عمل ',
     'workDays' => 'ايام عمل  ',
     'workDaysSetting' => ' اعدادات ايام العمل  ',
-    'max_pay_time'=>'الحد الاقصى لمدة الدفع في الطلب ',
-    'max_flexible_time'=>' الحد الاقصى لمدة المرونه في تسليم الطلب ',
+    'max_pay_time' => 'الحد الاقصى لمدة الدفع في الطلب ',
+    'max_flexible_time' => ' الحد الاقصى لمدة المرونه في تسليم الطلب ',
 
     'holiday' => 'اجازة   ',
     'roles' => 'الادوار والصلاحيات   ',
@@ -189,4 +189,12 @@ return [
     'ActiveDeactive' => ' تفعيل - تعطيل  ',
     'specific Setting' => ' صلاحيات مخصصة  ',
     'footer_description' => 'footer description ',
+    'Synonym_Title' => 'المترادفات   ',
+    'Synonym' => 'المترادفات ',
+    'Synonym_Edit' => 'تعديل ',
+    'Synonym_create' => 'اضف جديد',
+    'Synonym_Delete' => 'حذف',
+    'synonym' => 'المرادف',
+    'word' => 'الكلمة',
+
 ];

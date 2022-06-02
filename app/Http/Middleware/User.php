@@ -11,13 +11,13 @@ class User
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
-       if(Auth::guard("web")->check()){
+        if (Auth::guard("web")->check() || Auth::guard("admins")->check()) {
             return $next($request);
         }
         return redirect('/');

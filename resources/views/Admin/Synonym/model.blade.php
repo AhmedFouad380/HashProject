@@ -1,29 +1,17 @@
 <link rel="stylesheet" href="{{asset('dashboard/dropify/dist/css/dropify.min.css')}}">
-                    <form class="px-10" novalidate="novalidate" id="kt_form"  method="post" action="{{url('Update_Users')}}" enctype="multipart/form-data">
+                    <form class="px-10" novalidate="novalidate" id="kt_form"  method="post" action="{{url('Update_Synonym')}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label>{{__('lang.name')}} </label>
-                            <input type="text" class="form-control form-control-solid" name="name" value="{{$User->name}}" required placeholder="{{__('lang.Users_Name')}}" >
+                            <label>{{__('lang.word')}} </label>
+                            <input type="text" class="form-control form-control-solid" name="word" value="{{$User->word}}" required placeholder="{{__('lang.Users_Name')}}" >
                             <input type="hidden" class="form-control form-control-solid" name="id" value="{{$User->id}}" required placeholder="{{__('lang.Users_Name')}}" >
                         </div>
 
                         <div class="form-group">
-                            <label>{{__('lang.phone')}} </label>
-                            <input type="text" class="form-control form-control-solid" name="phone" value="{{$User->phone}}"   required placeholder="{{__('lang.phone')}}" >
-                        </div>
-                        <div class="form-group">
-                            <label>{{__('lang.email')}} </label>
-                            <input type="email" class="form-control hijri-date-input" name="email" value="{{$User->email}}"   required value="">
+                            <label>{{__('lang.synonym')}} </label>
+                            <input type="text" class="form-control form-control-solid" name="synonym" value="{{$User->synonym}}"   required placeholder="{{__('lang.phone')}}" >
                         </div>
 
-                        <div class="form-group">
-                            <label>{{__('lang.address')}}  </label>
-                            <input type="text" class="form-control form-control-solid" name="address" value="{{$User->address}}"  required placeholder="{{__('lang.address')}}" >
-                        </div>
-                        <div class="form-group">
-                            <label>{{__('lang.password')}}  </label>
-                            <input  type="text"   style="-webkit-text-security: square;"    class="form-control form-control-solid" name="password" required placeholder="{{__('lang.password')}}" >
-                        </div>
 
 
                         <div class="modal-footer">

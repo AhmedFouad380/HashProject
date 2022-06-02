@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\SynonymController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\InboxController;
 use App\Http\Controllers\Admin\UserController;
@@ -53,7 +54,7 @@ Route::get('lang/{lang}', function ($lang) {
     return back();
 });
 
-Route::group(['middleware' => ['web', 'auth']], function () {
+Route::group(['middleware' => ['web', 'User']], function () {
 
     Route::get('/Users', [UserController::class, 'index'])->middleware('Admin');
 
@@ -75,8 +76,9 @@ Route::group(['middleware' => ['web', 'auth']], function () {
 });
 Route::post('/Update_Setting', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->middleware('Admin');;
 Route::get('/Setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->middleware('Admin');;
-Route::get('/Users', [UserController::class, 'index'])->middleware('Admin');
 
+
+Route::get('/Users', [UserController::class, 'index'])->middleware('Admin');
 Route::post('/Create_Users', [UserController::class, 'store'])->middleware('Admin');;
 Route::get('/Delete_Users', [UserController::class, 'delete'])->middleware('Admin');;
 Route::post('/Update_Users', [UserController::class, 'update'])->middleware('Admin');;
@@ -92,3 +94,10 @@ Route::post('/Update_Admins', [\App\Http\Controllers\Admin\AdminController::clas
 Route::get('/AdminsSearch', [\App\Http\Controllers\Admin\AdminController::class, 'search'])->middleware('Admin');;
 Route::get('/Edit_Admins', [\App\Http\Controllers\Admin\AdminController::class, 'edit'])->middleware('Admin');;
 Route::get('/UpdateStatusAdmin', [\App\Http\Controllers\Admin\AdminController::class, 'UpdateStatusUser'])->middleware('Admin');;
+
+
+Route::get('/Synonym', [SynonymController::class, 'index'])->middleware('Admin');
+Route::post('/Create_Synonym', [SynonymController::class, 'store'])->middleware('Admin');;
+Route::get('/Delete_Synonym', [SynonymController::class, 'delete'])->middleware('Admin');;
+Route::post('/Update_Synonym', [SynonymController::class, 'update'])->middleware('Admin');;
+Route::get('/Edit_Synonym', [SynonymController::class, 'edit'])->middleware('Admin');
