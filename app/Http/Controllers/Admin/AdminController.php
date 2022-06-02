@@ -7,6 +7,7 @@ use App\Log;
 use App\Models\Admin;
 use App\Models\LoginLog;
 use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -26,12 +27,12 @@ class AdminController extends Controller
 
     public function Search(Request $request)
     {
-        $query = DB::table('admins')->OrderBy('id', 'desc');
+        $query = Admin::OrderBy('id', 'desc');
         if ($request->name != null) {
             $query->where('name', 'like', '%' . $request->name . '%');
         }
         if ($request->phone != null) {
-            $query->where('phone', $request->phone);
+            $query->where('phone',  'like', '%' . $request->phone . '%');
         }
         $Users = $query->get();
         return view('Admin.Admin.index', compact('Users'));
@@ -40,12 +41,12 @@ class AdminController extends Controller
 
     public function Profile()
     {
-        if (Auth::guard('admins')->check()){
+        if (Auth::guard('admins')->check()) {
             $User = Admin::find(Auth::guard('admins')->user()->id);
-        }elseif (Auth::guard('suppliers')->check()){
-            $User = Supplier::find(Auth::guard('suppliers')->user()->id);
+        } elseif (Auth::guard('suppliers')->check()) {
+            $User = User::find(Auth::user()->id);
 
-        }else{
+        } else {
             return redirect()->back();
         }
 
@@ -142,7 +143,7 @@ class AdminController extends Controller
 
         try {
             $User->save();
-            $User->roles()->sync([$request->role]);
+
 
         } catch (\Exception $e) {
             return back()->with('message', 'Failed');
@@ -151,17 +152,15 @@ class AdminController extends Controller
     }
 
 
-
-
-        public function logout()
-        {
-            if (Auth::guard('admins')->check() || Auth::guard('web')->check()) {
-                auth_login()->logout();
-                return redirect('/admin/login');
-            }else {
-                return redirect('/admin/login');
-            }
+    public function logout()
+    {
+        if (Auth::guard('admins')->check() || Auth::guard('web')->check()) {
+            auth_login()->logout();
+            return redirect('/admin/login');
+        } else {
+            return redirect('/admin/login');
         }
+    }
 
 
     public function Update_Profile(Request $request)
@@ -172,12 +171,12 @@ class AdminController extends Controller
         ]);
 
 
-        if (Auth::guard('admins')->check()){
+        if (Auth::guard('admins')->check()) {
             $User = Admin::find($request->id);
-        }elseif (Auth::guard('suppliers')->check()){
-            $User = Supplier::find($request->id);
+        } elseif (Auth::guard('suppliers')->check()) {
+            $User = User::find($request->id);
 
-        }else{
+        } else {
             return redirect()->back();
         }
 
@@ -187,7 +186,7 @@ class AdminController extends Controller
         if ($request->password) {
             $User->password = $request->password;
         }
-        if ( $request->file('image')) {
+        if ($request->file('image')) {
             $User->image = $request->image;
 
         }
@@ -229,7 +228,6 @@ class AdminController extends Controller
 
         return redirect()->back()->with('message', 'Success');
     }
-
 
 
     public function login(Request $request)

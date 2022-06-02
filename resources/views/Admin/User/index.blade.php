@@ -164,7 +164,7 @@
                     <!--end: Datatable-->
                 </div>
 
-                <h3>اجمالي المستخدمين : @inject('AllUsers','App\Models\User') {{$AllUsers->count()}} </h3>
+{{--                <h3>اجمالي المستخدمين : @inject('AllUsers','App\Models\User') {{$AllUsers->count()}} </h3>--}}
             </div>
             <!--end::Card-->
         </div>
