@@ -39,7 +39,7 @@ class InboxController extends Controller
                 ->root()->get();
         } else {
             $Users = Inbox::
-                Where('sender_id', Auth::guard('web')->id())->OrderBy('id', 'desc')
+            Where('sender_id', Auth::guard('web')->id())->OrderBy('id', 'desc')
                 ->root()->get();
         }
 
@@ -49,18 +49,18 @@ class InboxController extends Controller
 
     public function Replies($id)
     {
+        $id = decrypt($id);
         $Users = Inbox::whereId($id)->with('childreninboxes')->first();
-        if (Auth::guard('admins')->check() ) {
+
+        if (Auth::guard('admins')->check()) {
             $Users->is_read = 1;
             $Users->save();
 
-        } elseif (!Auth::guard('admins')->check() ) {
+        } elseif (!Auth::guard('admins')->check()) {
             $Users->is_read = 1;
             $Users->save();
 
         }
-
-
 
 
         return view('Admin.Inbox.replies', compact('Users'));
@@ -78,7 +78,6 @@ class InboxController extends Controller
 
         return response()->json(['users' => $Users]);
     }
-
 
 
     public function store(Request $request)
@@ -99,7 +98,7 @@ class InboxController extends Controller
         } else {
             $inbox->sender_id = Auth::guard('web')->user()->id;
         }
-        $inbox->created_at=Carbon::now('Asia/Riyadh');
+        $inbox->created_at = Carbon::now('Asia/Riyadh');
         $inbox->save();
         try {
             $inbox->save();
@@ -152,7 +151,7 @@ class InboxController extends Controller
         } else {
             $inbox->sender_id = Auth::guard('web')->user()->id;
 
-                $inbox->receiver_id = $parent_inbox->sender_id;
+            $inbox->receiver_id = $parent_inbox->sender_id;
 
         }
 

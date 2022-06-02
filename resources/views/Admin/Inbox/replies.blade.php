@@ -153,6 +153,7 @@
 
                                             <div>
                                                 <span id="message">{!! $Users->message  !!}</span>
+                                                <span id="message">{!! $Users->hashed_message  !!}</span>
 
                                             </div>
                                             <br>
@@ -288,6 +289,7 @@
 
                                                 <div class="card-spacer-x py-3 toggle-on-item">
                                                     {!! html_entity_decode($user->message)  !!}
+                                                    {!! $user->hashed_message !!}
                                                 </div>
 
                                                 <div class="card-spacer-x py-3 toggle-off-item">
@@ -336,7 +338,7 @@
                         <div class="form-group">
                             <label>{{__('lang.message')}} </label>
                             <textarea name="message" id="kt-ckeditor-1">
-												 {{__('lang.message')}}
+
 												 	</textarea>
 
                             <input type="hidden" class="form-control form-control-solid" name="inbox_id" required

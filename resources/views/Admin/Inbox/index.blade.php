@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('dashboard/dropify/dist/css/dropify.min.css')}}">
 
     <style>
-        .truncate  {
+        .truncate {
             width: 494px;
             white-space: nowrap;
             overflow: hidden;
@@ -183,7 +183,8 @@
                                 <!--begin::Items-->
                                 @foreach($Users as $user)
 
-                                    <div class="list list-hover min-w-500px" @if($user->is_read === 0 ) style="background-color: #dedede;!important;" @endif>
+                                    <div class="list list-hover min-w-500px"
+                                         @if($user->is_read === 0 ) style="background-color: #dedede;!important;" @endif>
 
                                         <div class="d-flex align-items-start card-spacer-x py-3">
 
@@ -204,21 +205,22 @@
                                             </div>
                                             <!--end::Toolbar-->
                                             <!--begin::Info-->
-                                            <a href="{{url('replies/'.$user->id)}}">
+                                            <a href="{{url('replies/'.encrypt($user->id))}}">
                                                 <div class="flex-grow-1 mt-2 mr-2" data-toggle="view">
                                                     <div>
                                                         <!--<span class="font-weight-bolder font-size-lg mr-2"></span>-->
-                                                        <span class="text-muted"><div class="truncate ">{!! $user->message !!}  </div>
+                                                        <span class="text-muted"><div
+                                                                class="truncate ">{!! $user->message !!}  </div>
                                                             </span>
                                                     </div>
                                                     <div class="mt-2">
                                                         @if(\Illuminate\Support\Facades\Auth::guard('admins')->check())
-                                                            <a href="{{url('replies/'.$user->id)}}"
+                                                            <a href="{{url('replies/'.encrypt($user->id))}}"
                                                                class="label label-light-primary font-weight-bold label-inline mr-1">المزيد</a>
                                                         @else
                                                             @if($user->is_order == 1 && $user->order->supplier_id !=null)
                                                                 @if($user->order->supplier_id == supplier_parent())
-                                                                    <a href="{{url('replies/'.$user->id)}}"
+                                                                    <a href="{{url('replies/'.encrypt($user->id))}}"
                                                                        class="label label-light-primary font-weight-bold label-inline mr-1">المزيد</a>
                                                                 @else
                                                                     <a href="#" onclick="order_not_allowed()"
@@ -227,7 +229,7 @@
 
 
                                                             @else
-                                                                <a href="{{url('replies/'.$user->id)}}"
+                                                                <a href="{{url('replies/'.encrypt($user->id))}}"
                                                                    class="label label-light-primary font-weight-bold label-inline mr-1">المزيد</a>
 
                                                             @endif
@@ -288,11 +290,11 @@
                             <label>{{__('lang.message')}} </label>
 
                             <textarea name="message" id="kt-ckeditor-1" dir="rtl" required>
-												 {{__('lang.message')}}
+
 												 	</textarea>
                         </div>
 
-                            @if(Auth::guard('web')->check())
+                        @if(Auth::guard('web')->check())
 
                             <div class="form-group">
                                 <label>{{__('lang.receiver')}} </label>
@@ -315,31 +317,30 @@
                                 </select>
                             </div>
 
-                                @endif
-                            <div class="form-group">
+                        @endif
+                        <div class="form-group">
 
 
-
-                        <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">{{__('lang.file')}}</label>
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="card">
-                                    <div class="card-block">
-                                        <h4 class="card-title"></h4>
-                                        <div class="controls">
-                                            <input type="file" id="input-file-now" class="dropify" name="file[]"
-                                                   multiple/>
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{{__('lang.file')}}</label>
+                                <div class="col-lg-12 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-block">
+                                            <h4 class="card-title"></h4>
+                                            <div class="controls">
+                                                <input type="file" id="input-file-now" class="dropify" name="file[]"
+                                                       multiple/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">{{__('lang.Close')}}</button>
-                            <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">{{__('lang.Close')}}</button>
+                                <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
+                            </div>
 
                     </form>
 

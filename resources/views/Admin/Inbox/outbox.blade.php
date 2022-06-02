@@ -202,12 +202,12 @@
                                                 </div>
                                                 <!--end::Toolbar-->
                                                 <!--begin::Info-->
-                                                <a href="{{url('replies/'.$user->id)}}">
+                                                <a href="{{url('replies/'.encrypt($user->id))}}">
                                                     <div class="flex-grow-1 mt-2 mr-2" data-toggle="view">
                                                         <div>
                                                             <span class="font-weight-bolder font-size-lg mr-2"></span>
                                                             <span class="text-muted"><div class="truncate ">{!! $user->message !!} </div>
-                                                        <a href="{{url('replies/'.$user->id)}}" class="label label-light-primary font-weight-bold label-inline
+                                                        <a href="{{url('replies/'.encrypt($user->id))}}" class="label label-light-primary font-weight-bold label-inline
                                                     mr-1">المزيد</a> </span>
                                                         </div>
                                                         <div class="mt-2">
@@ -268,7 +268,7 @@
                             <label>{{__('lang.message')}} </label>
 
                             <textarea name="message" id="kt-ckeditor-1" dir="rtl" required>
-												 {{__('lang.message')}}
+
 												 	</textarea>
                         </div>
 

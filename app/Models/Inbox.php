@@ -17,7 +17,6 @@ class Inbox extends Model
     ];
 
 
-
     protected $hidden = ['file'];
     protected $with = ['files'];
     public $timestamps = false;
@@ -27,6 +26,27 @@ class Inbox extends Model
         'is_read' => 'integer',
         'created_at' => 'datetime:Y-m-d h:i',
     ];
+
+
+    protected $appends = ['hashed_message'];
+
+    public function getHashedMessageAttribute()
+    {
+        $message = strip_tags($this->message);
+        $message_array = explode(' ', $message);
+        $new_message_array = [];
+        foreach ($message_array as $word) {
+            $syn = Synonym::where('word', $word)->first();
+            if ($syn) {
+                array_push($new_message_array, $syn->synonym);
+            } else {
+                array_push($new_message_array, $word);
+            }
+        }
+
+        $new_message = implode(' ', $new_message_array);
+        return $new_message;
+    }
 
 
     public function files()
@@ -46,7 +66,7 @@ class Inbox extends Model
 
     public function childreninboxes()
     {
-        return $this->hasMany(Inbox::class)->with('inboxes')->orderBy('id','desc');
+        return $this->hasMany(Inbox::class)->with('inboxes')->orderBy('id', 'desc');
     }
 
 
@@ -75,20 +95,20 @@ class Inbox extends Model
     {
 
 
-            return $this->hasOne('App\Models\User', 'id', 'sender_id');
+        return $this->hasOne('App\Models\User', 'id', 'sender_id');
     }
 
 
     public function getReciever()
     {
 
-            return $this->hasOne('App\Models\User', 'id', 'receiver_id');
+        return $this->hasOne('App\Models\User', 'id', 'receiver_id');
 
     }
 
     public function getMessageAttribute($Message)
     {
-        $decrypt= Crypt::decryptString($Message);
+        $decrypt = Crypt::decryptString($Message);
 
         return $decrypt;
     }
@@ -98,7 +118,7 @@ class Inbox extends Model
 
         $encrypted = Crypt::encryptString($Message);
 
-            $this->attributes['message'] = $encrypted;
+        $this->attributes['message'] = $encrypted;
 
 
     }
