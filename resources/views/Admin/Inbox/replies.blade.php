@@ -152,55 +152,16 @@
                                         <div class="card-spacer-x py-3 toggle-off-item">
 
                                             <div>
-                                                <span id="message">{!! $Users->message  !!}</span>
-                                                <span id="message">{!! $Users->hashed_message  !!}</span>
+                                                <span class="message_new" id="message">{!! $Users->message  !!}</span>
+                                                <span onmouseout="bigImg(this)" class="hashed_message"
+                                                      style="display: none;">{!! $Users->hashed_message  !!} </span>
 
                                             </div>
                                             <br>
                                             <br>
                                             <div class="card-spacer-x  toggle-off-item">
                                                 <div class="row">
-                                                    @if($Users->supplier_id != null)
-                                                        <div class="col-lg-3">
-                                                            <a href="{{url('supplier/'.$Users->supplier_id)}}"
-                                                               class="btn btn-info"><i
-                                                                    class="fa fa-mail-bulk"></i>{{trans('lang.supplier')}}
-                                                            </a>
-                                                        </div>
-                                                    @endif
-                                                    @if($Users->is_order == 1)
-                                                        <div class="col-lg-3">
-                                                            <a href="{{url('pending-orders',$Users->order->id)}}"
-                                                               class="btn btn-info"><i
-                                                                    class="fa fa-mail-bulk"></i>{{trans('lang.order')}}
-                                                            </a>
-                                                        </div>
 
-                                                    @endif
-                                                    @if($Users->order)
-                                                        @if($Users->order->payment_status == 1)
-                                                            <div class="col-lg-3">
-                                                                <a data-id="{{$Users->order->user_id}}"
-                                                                   data-project-id="{{$Users->order->project_id}}"
-                                                                   data-original-title="{{__('lang.Customer_data')}}"
-                                                                   title="{{__('lang.Customer_data')}}"
-                                                                   class="btn btn-secondary edit-Advert">
-                                                                    <i class="fa fa-user"></i>{{trans('lang.Customer_data')}}
-                                                                </a>
-                                                            </div>
-
-                                                            <div class="col-lg-3">
-                                                                <a data-id="{{$Users->order->user_id}}"
-                                                                   data-original-title="{{__('lang.Deligate_data')}}"
-                                                                   title="{{__('lang.Deligate_data')}}"
-                                                                   class="btn btn-primary add-deligate">
-                                                                    <i class="fa fa-shipping-fast"></i>{{trans('lang.Deligate_data')}}
-                                                                </a>
-                                                            </div>
-
-
-                                                        @endif
-                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
@@ -288,8 +249,13 @@
                                                 <!--end::Message Heading-->
 
                                                 <div class="card-spacer-x py-3 toggle-on-item">
-                                                    {!! html_entity_decode($user->message)  !!}
-                                                    {!! $user->hashed_message !!}
+                                                    <span
+                                                        class="message_new">  {!! html_entity_decode($user->message)  !!}</span>
+                                                    <span class="hashed_message"
+                                                          onmouseout="bigImg(this)"
+                                                          style="display: none">{!! $user->hashed_message  !!} </span>
+
+
                                                 </div>
 
                                                 <div class="card-spacer-x py-3 toggle-off-item">
@@ -337,8 +303,7 @@
                         @csrf
                         <div class="form-group">
                             <label>{{__('lang.message')}} </label>
-                            <textarea name="message" id="kt-ckeditor-1">
-
+                            <textarea name="message" class="form-control" id="" dir="rtl" required>
 												 	</textarea>
 
                             <input type="hidden" class="form-control form-control-solid" name="inbox_id" required
@@ -488,82 +453,51 @@
 
     <script>
 
-        $('#deligate').submit(function (event) {
-            event.preventDefault();
-            var formdata = $('#deligate').serialize();
-            console.log(jQuery('#order_id').val());
-            $.ajax({
-                url: "/addDeligate",
-                type: "POST",
-                data: formdata,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (response) {
-                    console.log(formdata);
-                    console.log(response);
-                    if (response.errors) {
-                        $.each(response.errors, function (k, v) {
-                            $('#deligate').prepend("<p style='color: red'>" + v + "</p>");
-                        })
-                    } else {
-                        $(".add_deligate").modal('hide');
-                        $('#order_id_code').val(jQuery('#order_id').val());
-                        $(".add_deligate_code").modal('show');
-                    }
-                },
+        var el = document.getElementsByClassName("message_new");
+        var el2 = document.getElementsByClassName("hashed_message");
 
-            });
-        });
 
-        $('#deligate_code').submit(function (event) {
-            event.preventDefault();
-            var formdata = $('#deligate_code').serialize();
-            console.log(formdata);
-            $.ajax({
-                url: "/deligate-code",
-                type: "POST",
-                data: formdata,
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                success: function (response) {
-                    console.log(formdata);
-                    console.log(response);
-                    if (response.errors) {
-                        $.each(response.errors, function (k, v) {
-                            $('#deligate_code').prepend("<p style='color: red'>" + v + "</p>");
-                        })
-                    } else {
-                        var delay = 2000;
-                        var url = '{{url('/orders')}}'
-                        setTimeout(function () {
-                            window.location = url;
-                        }, delay);
-                    }
-                },
+        for (i in el) {
 
-            });
-        });
+            el[i].addEventListener("mouseover", function () {
 
-        $(".add-deligate").click(function () {
-            var order_id = $(this).data('id');
-            $('#deligate_name').val('');
-            $('#deligate_phone').val('');
-            $.ajax({
-                url: "/orders_ajax/" + order_id,
-                dataType: "json",
-                success: function (html) {
-                    if (html.order.has_deligate == 1) {
-                        $('#deligate_name').val(html.order.deligate_name);
-                        $('#deligate_phone').val(html.order.deligate_phone);
-                    }
+                var check = false;
+                if (check) {
+                    console.log("true" + check);
+                    check = false;
+                    this.style.display = 'block';
+                    // el2[$('.message_new').index(this)].style.cssText = "display : none;";
+                } else {
+                    console.log("false" + check);
+                    check = true;
+                    // this.style.display = 'none';
+                    el2[$('.message_new').index(this)].style.cssText = "display : block;";
                 }
-            })
-            $('#order_id').val(order_id);
-            $(".add_deligate").modal('show');
 
-        });
+
+            });
+
+            el[i].addEventListener("mouseout", function () {
+
+                this.style.display = 'block';
+                el2[$('.message_new').index(this)].style.cssText = "display : none;";
+
+
+            });
+
+
+        }
+
+        function bigImg(k) {
+            k.style.display = 'none';
+            el[$('.message_new').index(k)].style.cssText = "display : block;";
+        }
+
+
+
+
+    </script>
+    <script>
 
 
         $(".edit-Advert").click(function () {

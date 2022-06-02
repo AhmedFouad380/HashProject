@@ -267,8 +267,7 @@
                         <div class="form-group">
                             <label>{{__('lang.message')}} </label>
 
-                            <textarea name="message" id="kt-ckeditor-1" dir="rtl" required>
-
+                            <textarea name="message" class="form-control"  id="" dir="rtl" required>
 												 	</textarea>
                         </div>
 

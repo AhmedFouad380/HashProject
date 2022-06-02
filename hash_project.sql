@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2022 at 01:02 PM
+-- Generation Time: Jun 02, 2022 at 02:35 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -47,7 +47,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `image`, `email`, `phone`, `address`, `is_active`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'مدير النظام', NULL, 'Admin@admin.com', '966505505050', '15 d', 1, NULL, '$2y$10$XHqgfdALl4vpq4qmbcAxcO2QZg3QKpNJZLAjMHquvot05iwgQX6R2', NULL, NULL, '2022-06-02 11:12:25');
+(1, 'مدير النظام', '16541729566298ad1c58d81.png', 'Admin@admin.com', '966505505050', '15 d', 1, NULL, '$2y$10$h6Jf2FodDlN3J5C01OyOUOzM/jAMsG7aFIMKPMEuyDh8mzd6XMeLm', NULL, NULL, '2022-06-02 13:29:16');
 
 -- --------------------------------------------------------
 
@@ -91,8 +91,11 @@ INSERT INTO `inboxes` (`id`, `message`, `sender_id`, `receiver_id`, `inbox_id`, 
 (1, 'eyJpdiI6InJ1VWVyb2QxRmsyM1NEZEVmYnMxVlE9PSIsInZhbHVlIjoic1l2MFRLNlZFbUdOYUVxT1AvU0VuQ2J0L3ZsT2c3NjdheGNoZS93Q0dXST0iLCJtYWMiOiJmYTlkYTI2MGQyYjE0YzI2MWMxZmVkZDczMWMwYThmM2ZmZGRjNzU1Yjk5YjMwYjgwZGQxY2VjOTdkZTM4MzhjIiwidGFnIjoiIn0=', 1, 2, NULL, 'mail', 1, '2022-06-02 11:16:10', NULL),
 (2, 'eyJpdiI6ImFSQUlCcEsvUGNwSUdQRmhjeVhpMHc9PSIsInZhbHVlIjoiaFhWNk1yVW5qZFlEWVNEOG1lYjg5UHBGTWp6eFdoOEpsdnpoK3pXdXhKST0iLCJtYWMiOiJlM2ZlMzMxOWI5MWQ4YTg1ODE3YzYwZWMyNWU3ZTMwZmNjMjgxM2FjMDIyODYxNzYwYmM0NmI4MTExZGVjNDkyIiwidGFnIjoiIn0=', 1, 1, 1, 'mail', 0, NULL, NULL),
 (3, 'eyJpdiI6IkVyUTR4cGR3SVJwSGJ3aHZJU3UwK1E9PSIsInZhbHVlIjoiYjk0b2pZanV0UXpiOUN1YzdGWndKSHVEOWt5VnNUWTlneE40b01raDRNST0iLCJtYWMiOiJiZjM3OTJmZjY0N2NjNzA3MTI3YjdmNWQwOTA1Y2MxNzE5ZDE5MDU3ZTVjNzNkNDE0YjE4MzNmYjljNDA1OWM3IiwidGFnIjoiIn0=', 2, 1, NULL, 'mail', 1, '2022-06-02 11:54:33', NULL),
-(4, 'eyJpdiI6Ino3U0lNZUgyOTdPajhFb0g1Nm4vUEE9PSIsInZhbHVlIjoiTkg1bUQ1WExKb3V5M1NtU1RCSWVPbkQ1cVd3VzhYVk5kTmFpM04rd2tIZz0iLCJtYWMiOiI5OThhMTJiMzNlMWMzNDg0NGVmNThhMzEwMGI2MjIzNzE3YTg0MTJjZmRlYjMzZDk5ZjVhZmYxZGE2NWUwYmQxIiwidGFnIjoiIn0=', 2, 1, NULL, 'mail', 0, '2022-06-02 11:54:45', NULL),
-(5, 'eyJpdiI6IkE2WjRQUjIzL3k2bC91cEpsQ3ppZ2c9PSIsInZhbHVlIjoiZ2dBU0o5M1RJbXZxZVRIMVNkZFBTcDlEQUxmNE5tOGx2OEo0Z2VvaDZpY2RXNWpPeG9NRnp5MVkzdHJyRE43dSIsIm1hYyI6IjU5ZTIzMDNiZDFhOWE3NmZlMmExZmEyNzUzZjcxZDU4NGRlYjhhZTQ3N2Y4OWU1YThhMDYyNTZmNTg2NWE3NzMiLCJ0YWciOiIifQ==', 2, 1, NULL, 'mail', 1, '2022-06-02 11:56:31', NULL);
+(4, 'eyJpdiI6Ino3U0lNZUgyOTdPajhFb0g1Nm4vUEE9PSIsInZhbHVlIjoiTkg1bUQ1WExKb3V5M1NtU1RCSWVPbkQ1cVd3VzhYVk5kTmFpM04rd2tIZz0iLCJtYWMiOiI5OThhMTJiMzNlMWMzNDg0NGVmNThhMzEwMGI2MjIzNzE3YTg0MTJjZmRlYjMzZDk5ZjVhZmYxZGE2NWUwYmQxIiwidGFnIjoiIn0=', 2, 1, NULL, 'mail', 1, '2022-06-02 11:54:45', NULL),
+(5, 'eyJpdiI6IkE2WjRQUjIzL3k2bC91cEpsQ3ppZ2c9PSIsInZhbHVlIjoiZ2dBU0o5M1RJbXZxZVRIMVNkZFBTcDlEQUxmNE5tOGx2OEo0Z2VvaDZpY2RXNWpPeG9NRnp5MVkzdHJyRE43dSIsIm1hYyI6IjU5ZTIzMDNiZDFhOWE3NmZlMmExZmEyNzUzZjcxZDU4NGRlYjhhZTQ3N2Y4OWU1YThhMDYyNTZmNTg2NWE3NzMiLCJ0YWciOiIifQ==', 2, 1, NULL, 'mail', 1, '2022-06-02 11:56:31', NULL),
+(6, 'eyJpdiI6IkR1YU5jaE1ITEx6Z29CRkN2RWw5WVE9PSIsInZhbHVlIjoiSCsvbHh3Z0ZNa0gzQXM5WEYyVGNtemFXMEJtUVlqZmU3VVpqUFUramc2OD0iLCJtYWMiOiI1ODcyYWFhMDQ5MTIyY2E5Y2ZkZjA5MGU0M2Q4YTQxNmIwOGU3Y2NkYTI5MDhjZDkwMzdiZjYxNDM2OTNmZGZhIiwidGFnIjoiIn0=', 1, 2, NULL, 'mail', 1, '2022-06-02 13:10:43', NULL),
+(7, 'eyJpdiI6IjlBYWVNY2NocXdjY3oyOTEwQTZOQ0E9PSIsInZhbHVlIjoiQWY1ckVZV1NxR2xqQUVZWXZWTkc1Sm0wMWJlWisvUTRoKzNSOStaOWIyZz0iLCJtYWMiOiI4YTlkMDM0YjZhYzZkZGJkMTBlNDkxNGViMzkwYWVjY2IxZjY2YWQzN2Y0ZjYzMGI0NjRlNjg4NzI4MmY4ZmE2IiwidGFnIjoiIn0=', 1, 1, 6, 'mail', 0, NULL, NULL),
+(8, 'eyJpdiI6ImpiNGtZRzR6d1dLVjRDUGgrMkN4WHc9PSIsInZhbHVlIjoiTWNtcjhpcmxqclA4eHJJWUQ4UzJJdmZhNGIwdHlqNXRTLzJsNGVzYS8zalNSRWpvMm0vWW1hRjl4SjhWaE9aQyIsIm1hYyI6IjQ1N2E2MzJiMzBlMWNhZjM0Njk4OTBmNDdiMjE2NWEwNzcyNjA0OWMzNGE3MmVkNTA3MzE1NTdiMDczNWYyNDIiLCJ0YWciOiIifQ==', 1, 1, 6, 'mail', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -132,7 +135,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2022_06_01_105111_create_admins_table', 1),
 (6, '2022_06_01_105141_create_inboxes_table', 1),
 (7, '2022_06_01_106111_create_inbox_files_table', 1),
-(8, '2022_06_02_114822_create_settings_table', 1);
+(8, '2022_06_02_114822_create_settings_table', 1),
+(9, '2022_06_02_143354_create_synonyms_table', 2);
 
 -- --------------------------------------------------------
 
@@ -185,7 +189,29 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `name`, `footer_description`, `logo`, `background_login`, `created_at`, `updated_at`) VALUES
-(1, 'نظام التشفير النصي', '1', '1', '1', NULL, '2022-06-02 11:08:44');
+(1, 'نظام التشفير النصي', '1', '16541728416298aca98d5a9.png', '16541728416298aca98da17.png', NULL, '2022-06-02 13:27:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `synonyms`
+--
+
+CREATE TABLE `synonyms` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `word` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `synonym` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `synonyms`
+--
+
+INSERT INTO `synonyms` (`id`, `word`, `synonym`, `created_at`, `updated_at`) VALUES
+(2, 'صباح', 'بليل', '2022-06-02 12:52:55', '2022-06-02 13:17:50'),
+(4, 'الرسالة', 'المعاد', '2022-06-02 13:21:53', '2022-06-02 13:21:53');
 
 -- --------------------------------------------------------
 
@@ -214,8 +240,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `image`, `email`, `phone`, `address`, `is_active`, `is_verified`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'user 2', NULL, 'a@a.com', '966505509090', '15Th disrict', 1, 0, NULL, '$2y$10$oCZB3zyIeCVm1mcE8Fq87u.onBDXP/PWByHIL8SWAfjPnD6FLnU1a', NULL, '2022-06-02 11:14:10', '2022-06-02 11:14:10'),
-(2, 'test update', NULL, 'mostafaelebzary@gmail.com', '966515975365', '15Th disrict', 1, 0, NULL, '$2y$10$Wt2U..S7GpqXzOU4kty16exAfhJDYqGB/IuRrx0S.CZ62yQyMWUpO', NULL, '2022-06-02 11:14:45', '2022-06-02 11:14:45');
+(1, 'user 2', '16541716036298a7d312eb1.PNG', 'a@a.com', '966505509090', '15Th disrict hh', 1, 0, NULL, '$2y$10$h6Jf2FodDlN3J5C01OyOUOzM/jAMsG7aFIMKPMEuyDh8mzd6XMeLm', NULL, '2022-06-02 11:14:10', '2022-06-02 13:06:43'),
+(2, 'test update', NULL, 'mostafaelebzary@gmail.com', '966515975365', '15Th disrict', 1, 0, NULL, '$2y$10$h6Jf2FodDlN3J5C01OyOUOzM/jAMsG7aFIMKPMEuyDh8mzd6XMeLm', NULL, '2022-06-02 11:14:45', '2022-06-02 12:50:43');
 
 --
 -- Indexes for dumped tables
@@ -279,6 +305,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `synonyms`
+--
+ALTER TABLE `synonyms`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -306,7 +338,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `inboxes`
 --
 ALTER TABLE `inboxes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `inbox_files`
@@ -318,7 +350,7 @@ ALTER TABLE `inbox_files`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -331,6 +363,12 @@ ALTER TABLE `personal_access_tokens`
 --
 ALTER TABLE `settings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `synonyms`
+--
+ALTER TABLE `synonyms`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
