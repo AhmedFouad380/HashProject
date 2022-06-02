@@ -287,7 +287,7 @@
                         <div class="form-group">
                             <label>{{__('lang.message')}} </label>
 
-                            <textarea name="message" id="kt-ckeditor-1" dir="rtl">
+                            <textarea name="message" id="kt-ckeditor-1" dir="rtl" required>
 												 {{__('lang.message')}}
 												 	</textarea>
                         </div>
@@ -297,7 +297,7 @@
                             <div class="form-group">
                                 <label>{{__('lang.receiver')}} </label>
 
-                                <select name="receiver_id" id="receiver_id" class="form-control">
+                                <select name="receiver_id" id="receiver_id" class="form-control" required>
                                     @foreach(\App\Models\User::where('id','!=',Auth::guard('web')->id())->get() as $data)
                                         <option value="{{$data->id}}">{{$data->name}}</option>
                                     @endforeach
@@ -308,7 +308,7 @@
                             <div class="form-group">
                                 <label>{{__('lang.receiver')}} </label>
 
-                                <select name="receiver_id" id="receiver_id" class="form-control">
+                                <select name="receiver_id" id="receiver_id" class="form-control" required>
                                     @foreach(\App\Models\User::all() as $data)
                                         <option value="{{$data->id}}">{{$data->name}}</option>
                                     @endforeach

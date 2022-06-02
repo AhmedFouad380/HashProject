@@ -539,77 +539,77 @@
 
                             <!--end::Notifications-->
 
-                            <!--begin::Languages-->
-                            <div class="dropdown">
-                                <!--begin::Toggle-->
-                                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">
-                                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">
-                                        @if(session('lang') == 'ar')
-                                            <img class="h-20px w-20px rounded-sm"
-                                                 src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"
-                                                 alt=""/>
-                                        @else
-                                            <img class="h-20px w-20px rounded-sm"
-                                                 src="{{asset('/dashboard/assets/media/flags/020-flag.svg')}}"
-                                                 alt=""/>
-                                        @endif
+{{--                            <!--begin::Languages-->--}}
+{{--                            <div class="dropdown">--}}
+{{--                                <!--begin::Toggle-->--}}
+{{--                                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">--}}
+{{--                                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">--}}
+{{--                                        @if(session('lang') == 'ar')--}}
+{{--                                            <img class="h-20px w-20px rounded-sm"--}}
+{{--                                                 src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"--}}
+{{--                                                 alt=""/>--}}
+{{--                                        @else--}}
+{{--                                            <img class="h-20px w-20px rounded-sm"--}}
+{{--                                                 src="{{asset('/dashboard/assets/media/flags/020-flag.svg')}}"--}}
+{{--                                                 alt=""/>--}}
+{{--                                        @endif--}}
 
-                                    </div>
-                                </div>
-                                <!--end::Toggle-->
-                                <!--begin::Dropdown-->
-                                <div
-                                    class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">
-                                    <!--begin::Nav-->
-                                    <ul class="navi navi-hover py-4">
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <!--end::Toggle-->--}}
+{{--                                <!--begin::Dropdown-->--}}
+{{--                                <div--}}
+{{--                                    class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">--}}
+{{--                                    <!--begin::Nav-->--}}
+{{--                                    <ul class="navi navi-hover py-4">--}}
 
-                                        <li class="navi-item">
-                                            @if(session('lang') == 'en')
-                                                <a href="{{url('lang/ar')}}" class="navi-link">
-                                            <span class="symbol symbol-20 mr-3">
+{{--                                        <li class="navi-item">--}}
+{{--                                            @if(session('lang') == 'en')--}}
+{{--                                                <a href="{{url('lang/ar')}}" class="navi-link">--}}
+{{--                                            <span class="symbol symbol-20 mr-3">--}}
 
-                                                    <img
-                                                        src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"
-                                                        alt=""/>
+{{--                                                    <img--}}
+{{--                                                        src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"--}}
+{{--                                                        alt=""/>--}}
 
-                                            </span>
-                                                    العربية
+{{--                                            </span>--}}
+{{--                                                    العربية--}}
 
-                                                </a>
-                                            @elseif(session('lang') == 'ar')
-                                                <a href="{{url('lang/en')}}" class="navi-link">
-                                            <span class="symbol symbol-20 mr-3">
-                                                 <img
-                                                     src="{{asset('/dashboard/assets/media/flags/020-flag.svg')}}"
-                                                     alt=""/>
+{{--                                                </a>--}}
+{{--                                            @elseif(session('lang') == 'ar')--}}
+{{--                                                <a href="{{url('lang/en')}}" class="navi-link">--}}
+{{--                                            <span class="symbol symbol-20 mr-3">--}}
+{{--                                                 <img--}}
+{{--                                                     src="{{asset('/dashboard/assets/media/flags/020-flag.svg')}}"--}}
+{{--                                                     alt=""/>--}}
 
-                                            </span>
+{{--                                            </span>--}}
 
-                                                    English
-                                                </a>
+{{--                                                    English--}}
+{{--                                                </a>--}}
 
-                                            @else
-                                                <a href="{{url('lang/ar')}}" class="navi-link">
-                                            <span class="symbol symbol-20 mr-3">
+{{--                                            @else--}}
+{{--                                                <a href="{{url('lang/ar')}}" class="navi-link">--}}
+{{--                                            <span class="symbol symbol-20 mr-3">--}}
 
-                                                    <img
-                                                        src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"
-                                                        alt=""/>
+{{--                                                    <img--}}
+{{--                                                        src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"--}}
+{{--                                                        alt=""/>--}}
 
-                                            </span>
+{{--                                            </span>--}}
 
 
-                                                </a>
+{{--                                                </a>--}}
 
-                                            @endif
-                                        </li>
+{{--                                            @endif--}}
+{{--                                        </li>--}}
 
-                                    </ul>
-                                    <!--end::Nav-->
-                                </div>
-                                <!--end::Dropdown-->
-                            </div>
-                            <!--end::Languages-->
+{{--                                    </ul>--}}
+{{--                                    <!--end::Nav-->--}}
+{{--                                </div>--}}
+{{--                                <!--end::Dropdown-->--}}
+{{--                            </div>--}}
+{{--                            <!--end::Languages-->--}}
                             <!--begin::User-->
                             <div class="topbar-item">
                                 <div

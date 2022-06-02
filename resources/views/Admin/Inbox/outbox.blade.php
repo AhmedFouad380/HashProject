@@ -267,71 +267,59 @@
                         <div class="form-group">
                             <label>{{__('lang.message')}} </label>
 
-                            <textarea name="message" id="kt-ckeditor-1">
+                            <textarea name="message" id="kt-ckeditor-1" dir="rtl" required>
 												 {{__('lang.message')}}
 												 	</textarea>
                         </div>
 
-                        @if (Auth::guard('admins')->check())
-                            <div class="form-group">
-                                <label>{{__('lang.receiver_type')}} </label>
-
-                                <select name="receiver_type" id="receiver_type" class="form-control">
-                                    <option value="">{{__('lang.selectType')}}</option>
-                                    <option value="user">{{__('lang.user')}}</option>
-                                    <option value="supplier">{{__('lang.supplier')}}</option>
-                                </select>
-                            </div>
+                        @if(Auth::guard('web')->check())
 
                             <div class="form-group">
                                 <label>{{__('lang.receiver')}} </label>
 
-                                <select name="receiver_id" id="receiver_id" class="form-control">
-
+                                <select name="receiver_id" id="receiver_id" class="form-control" required>
+                                    @foreach(\App\Models\User::where('id','!=',Auth::guard('web')->id())->get() as $data)
+                                        <option value="{{$data->id}}">{{$data->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
+                        @else
 
                             <div class="form-group">
-                                <label>{{__('lang.msg_type')}} </label>
+                                <label>{{__('lang.receiver')}} </label>
 
-                                <select name="type" id="type" class="form-control">
-                                    <option value="mail">{{__('lang.mail')}}</option>
-                                    <option value="notification">{{__('lang.notification')}}</option>
+                                <select name="receiver_id" id="receiver_id" class="form-control" required>
+                                    @foreach(\App\Models\User::all() as $data)
+                                        <option value="{{$data->id}}">{{$data->name}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
-                        @else
-                            <input type="hidden" name="receiver_type" value="admin">
-                            @php
-                                $admin = \App\Models\Admin::first();
-                            @endphp
-                            <input type="hidden" name="receiver_id" value="{{$admin->id}}">
-                            <input type="hidden" name="receiver_id" value="{{$admin->id}}">
-                            <input type="hidden" name="type" value="mail">
-
                         @endif
+                        <div class="form-group">
 
 
-                        <div class="form-group row">
-                            <label class="col-xl-3 col-lg-3 col-form-label">{{__('lang.file')}}</label>
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="card">
-                                    <div class="card-block">
-                                        <h4 class="card-title"></h4>
-                                        <div class="controls">
-                                            <input type="file" id="input-file-now" class="dropify" name="file[]"
-                                                   multiple/>
+
+                            <div class="form-group row">
+                                <label class="col-xl-3 col-lg-3 col-form-label">{{__('lang.file')}}</label>
+                                <div class="col-lg-12 col-xl-12">
+                                    <div class="card">
+                                        <div class="card-block">
+                                            <h4 class="card-title"></h4>
+                                            <div class="controls">
+                                                <input type="file" id="input-file-now" class="dropify" name="file[]"
+                                                       multiple/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                    data-dismiss="modal">{{__('lang.Close')}}</button>
-                            <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                        data-dismiss="modal">{{__('lang.Close')}}</button>
+                                <button type="submit" class="btn btn-primary">{{__('lang.save')}}</button>
+                            </div>
 
                     </form>
 
