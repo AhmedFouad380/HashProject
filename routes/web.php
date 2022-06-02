@@ -32,7 +32,6 @@ Route::POST('/UserLogin', [\App\Http\Controllers\Admin\AdminController::class, '
 Route::get('/logout', [\App\Http\Controllers\Admin\AdminController::class, 'logout']);
 
 
-
 Route::get('lang/{lang}', function ($lang) {
 
     if (session()->has('lang')) {
