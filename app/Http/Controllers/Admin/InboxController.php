@@ -21,7 +21,7 @@ class InboxController extends Controller
     {
 
         if (Auth::guard('admins')->check()) {
-            $Users = Inbox::get();
+            return redirect('Setting');
         } else {
             $Users = Inbox::Where('receiver_id', Auth::guard('web')->id())->OrderBy('id', 'desc')
                 ->root()->get();
@@ -50,32 +50,15 @@ class InboxController extends Controller
     public function Replies($id)
     {
         $Users = Inbox::whereId($id)->with('childreninboxes')->first();
-        if (Auth::guard('admins')->check() && $Users->receiver_type == "admin") {
+        if (Auth::guard('admins')->check() ) {
             $Users->is_read = 1;
             $Users->save();
-            $firebase = (new Factory)
-                ->withServiceAccount(app_path('amartech-69196-firebase-adminsdk-q996n-4cb7b7513a.json'))
-                ->withDatabaseUri('https://amartech-69196-default-rtdb.firebaseio.com/')
-                ->createDatabase();
-            $toBeDeleted = $firebase->getReference('amar/inboxes/' . $id);
-            $firebase->runTransaction(function (Transaction $transaction) use ($toBeDeleted) {
-                $transaction->snapshot($toBeDeleted);
-                $transaction->remove($toBeDeleted);
-            });
-        } elseif (!Auth::guard('admins')->check() && $Users->receiver_type == "supplier") {
-            $Users->is_read = 1;
-            $Users->save();
-            $firebase = (new Factory)
-                ->withServiceAccount(app_path('amartech-69196-firebase-adminsdk-q996n-4cb7b7513a.json'))
-                ->withDatabaseUri('https://amartech-69196-default-rtdb.firebaseio.com/')
-                ->createDatabase();
-            $toBeDeleted = $firebase->getReference('amar/inboxes/' . $id);
-            $firebase->runTransaction(function (Transaction $transaction) use ($toBeDeleted) {
-                $transaction->snapshot($toBeDeleted);
-                $transaction->remove($toBeDeleted);
-            });
-        }
 
+        } elseif (!Auth::guard('admins')->check() ) {
+            $Users->is_read = 1;
+            $Users->save();
+
+        }
 
 
 
@@ -96,51 +79,6 @@ class InboxController extends Controller
         return response()->json(['users' => $Users]);
     }
 
-    public function SingleInbox($id)
-    {
-        $data = Inbox::whereId($id)->first();
-        if($data){
-
-            if ($data->inbox_id !=null ){
-                $Users = Inbox::whereId($data->inbox_id)->get();
-            }else{
-                $Users = Inbox::whereId($id)->get();
-            }
-            if (Auth::guard('admins')->check() && $data->receiver_type == "admin") {
-                $data->is_read = 1;
-                $data->save();
-                $firebase = (new Factory)
-                    ->withServiceAccount(app_path('amartech-69196-firebase-adminsdk-q996n-4cb7b7513a.json'))
-                    ->withDatabaseUri('https://amartech-69196-default-rtdb.firebaseio.com/')
-                    ->createDatabase();
-                $toBeDeleted = $firebase->getReference('amar/inboxes/' . $id);
-                $firebase->runTransaction(function (Transaction $transaction) use ($toBeDeleted) {
-                    $transaction->snapshot($toBeDeleted);
-                    $transaction->remove($toBeDeleted);
-                });
-            } elseif (!Auth::guard('admins')->check() && $data->receiver_type == "supplier") {
-                $data->is_read = 1;
-                $data->save();
-                $firebase = (new Factory)
-                    ->withServiceAccount(app_path('amartech-69196-firebase-adminsdk-q996n-4cb7b7513a.json'))
-                    ->withDatabaseUri('https://amartech-69196-default-rtdb.firebaseio.com/')
-                    ->createDatabase();
-                $toBeDeleted = $firebase->getReference('amar/inboxes/' . $id);
-                $firebase->runTransaction(function (Transaction $transaction) use ($toBeDeleted) {
-                    $transaction->snapshot($toBeDeleted);
-                    $transaction->remove($toBeDeleted);
-                });
-            }
-
-
-
-
-            return view('Admin.Inbox.index', compact('Users'));
-        }else{
-            return back()->with('message', 'Failed');
-        }
-
-    }
 
 
     public function store(Request $request)

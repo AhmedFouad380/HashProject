@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Crypt;
 
 
 class Inbox extends Model
@@ -84,5 +85,23 @@ class Inbox extends Model
             return $this->hasOne('App\Models\User', 'id', 'receiver_id');
 
     }
+
+    public function getMessageAttribute($Message)
+    {
+        $decrypt= Crypt::decryptString($Message);
+
+        return $decrypt;
+    }
+
+    public function setMessageAttribute($Message)
+    {
+
+        $encrypted = Crypt::encryptString($Message);
+
+            $this->attributes['message'] = $encrypted;
+
+
+    }
+
 
 }

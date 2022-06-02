@@ -4,7 +4,7 @@
 	<!--begin::Head-->
 	<head><base href="../../../../">
 		<meta charset="utf-8" />
-		<title> نظام البريد الوارد || تسجيل الدخول  </title>
+		<title> {{\App\Models\Setting::find(1)->name}} || تسجيل الدخول  </title>
 		<meta name="description" content="UramSYS" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<link rel="canonical" href="http://uramit.com/" />
@@ -40,7 +40,7 @@
 					<div class="login-content d-flex flex-column pt-lg-0 pt-12">
 						<!--begin::Logo-->
 						<a href="#" class="login-logo pb-xl-20 pb-15">
-							<img src="" style="height: 160px !important;
+                            <img src="{{\App\Models\Setting::find(1)->logo}}" style="height: 160px !important;
     width: 180px;" alt="" />
 						</a>
 						<!--end::Logo-->
@@ -102,7 +102,7 @@
 				</div>
 				<!--begin::Content-->
 				<!--begin::Aside-->
-				<div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="background-size:cover; background-image: url({{asset('/dashboard/2.png')}});">
+				<div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="background-size:cover; background-image: url({{\App\Models\Setting::find(1)->background_login}});">
 					<div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" >
 						<!--begin::Aside title-->
 						<!--end::Aside title-->

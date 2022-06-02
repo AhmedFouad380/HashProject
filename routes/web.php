@@ -17,12 +17,11 @@ use App\Http\Controllers\Admin\UserController;
 */
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 Route::get('Admin-Panel',function (){
     return redirect('inbox');
 }   );
 
-Route::get('/',[InboxController::class, 'index'])->middleware('web');
 
 Route::get('/admin/login', function () {
     return view('login');
@@ -31,7 +30,12 @@ Route::get('/admin/login', function () {
 Route::POST('/UserLogin', [\App\Http\Controllers\Admin\AdminController::class, 'login']);
 Route::get('/logout', [\App\Http\Controllers\Admin\AdminController::class, 'logout']);
 Route::get('/', function () {
-    return view('Home');
+    if(Auth::guard('admins')->check()){
+        return redirect('Setting');
+    }else{
+        return redirect('inbox');
+
+    }
 });
 
 Route::get('lang/{lang}', function ($lang) {
@@ -49,7 +53,7 @@ Route::get('lang/{lang}', function ($lang) {
     return back();
 });
 
-Route::group(['middleware' => 'web'], function () {
+Route::group(['middleware' => ['web','auth']], function () {
 
     Route::get('/Users', [UserController::class, 'index'])->middleware('Admin');
 
@@ -66,7 +70,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/Update_Profile', [\App\Http\Controllers\Admin\AdminController::class, 'Update_Profile']);
 
 
-    Route::get('/inbox', [InboxController::class, 'index']);
+    Route::get('/inbox', [InboxController::class, 'index'])->middleware('User');
     Route::get('/outbox', [InboxController::class, 'outbox']);
 
 
@@ -75,7 +79,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/get-users/{type}', [InboxController::class, 'getUsers']);
     Route::post('/sendInbox', [InboxController::class, 'store']);
     Route::post('/sendReply', [InboxController::class, 'StoreReply']);
+
 });
+Route::post('/Update_Setting', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->middleware('Admin');;
+Route::get('/Setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->middleware('Admin');;
+
 Route::post('/Create_Users', [UserController::class, 'store'])->middleware('Admin');;
 Route::get('/Delete_Users', [UserController::class, 'delete'])->middleware('Admin');;
 Route::post('/Update_Users', [UserController::class, 'update'])->middleware('Admin');;

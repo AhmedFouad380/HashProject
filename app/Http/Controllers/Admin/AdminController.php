@@ -248,7 +248,7 @@ class AdminController extends Controller
         if (Auth::guard('admins')->attempt(['phone' => $request->phone, 'password' => $request->password, 'is_active' => 1])) {
 
 
-            return redirect('/Admin-Panel');
+            return redirect('/Setting');
         }
 
         if (Auth::guard('web')->attempt(['phone' => $request->phone, 'password' => $request->password, 'is_active' => 1])) {

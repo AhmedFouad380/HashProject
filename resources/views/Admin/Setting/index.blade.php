@@ -63,67 +63,22 @@
                                 <div class="kt-section__body">
 
                                     <div class="form-group">
-                                        <label>{{__('lang.name_ar')}} :</label>
-                                        <input class="form-control form-control-solid" type="text" value="{{$Setting->name_ar}}" name="name_ar">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>{{__('lang.name_en')}} :</label>
-                                        <input class="form-control form-control-solid" type="text" value="{{$Setting->name_en}}" name="name_en">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label>{{__('lang.description_ar')}} :</label>
-                                        <textarea class="form-control form-control-solid" type="text" name="description_ar" rows="5" value=""> {{$Setting->description_ar}} </textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>{{__('lang.description_en')}} :</label>
-                                        <textarea class="form-control form-control-solid" type="text" name="description_en" rows="5" value=""> {{$Setting->description_en}} </textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>{{__('lang.phone')}}   :</label>
-                                        <input class="form-control form-control-solid" type="text" name="phone" value="{{$Setting->phone}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>{{__('lang.email')}}   :</label>
-                                        <input class="form-control form-control-solid" type="text" name="email" value="{{$Setting->email}}">
+                                        <label>{{__('lang.name')}} :</label>
+                                        <input class="form-control form-control-solid" type="text" value="{{$Setting->name}}" name="name">
                                     </div>
 
 
-                                    <div class="form-group">
-                                        <label>{{__('lang.address')}}  :</label>
-                                        <input class="form-control form-control-solid" type="text" name="address" value="{{$Setting->address}}">
-                                    </div>
 
                                     <div class="form-group">
-                                        <label>Facebook :</label>
-                                        <input class="form-control form-control-solid" type="text" name="facebook" value="{{$Setting->facebook}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>twitter :</label>
-                                        <input class="form-control form-control-solid" type="text" name="twitter" value="{{$Setting->twitter}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Website :</label>
-                                        <input class="form-control form-control-solid" type="text" name="web" value="{{$Setting->web}}">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Terms & Policy :</label>
-                                        <textarea class="form-control form-control-solid" type="text" name="terms_policy" rows="5" value=""> {{$Setting->terms_policy}} </textarea>
+                                        <label>{{__('lang.footer_description')}} :</label>
+                                        <textarea class="form-control form-control-solid" type="text" name="footer_description" rows="5" value=""> {{$Setting->footer_description}} </textarea>
                                     </div>
 
 
                                     <input type="hidden" name="id" value="{{$Setting->id}}" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>{{__('lang.max_flexible_time')}}  :</label>
-                                <input class="form-control form-control-solid" type="number" name="max_flexible_time" value="{{$Setting->max_flexible_time}}">
-                            </div>
-                            <div class="form-group">
-                                <label>{{__('lang.max_pay_time')}}  :</label>
-                                <input class="form-control form-control-solid" type="text" name="max_pay_time" value="{{$Setting->max_pay_time}}">
-                            </div>
+
                             <div class="col-xl-12">
                                 <div class="kt-section__body">
 
@@ -142,6 +97,20 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                خلفية صفحة الدخول</label>
+                                        <div class="col-lg-12 col-xl-12">
+                                            <div class="card">
+                                                <div class="card-block">
+                                                    <h4 class="card-title"></h4>
+                                                    <div class="controls">
+                                                        <input type="file" id="input-file-now" class="dropify"  data-default-file="{{asset($Setting->background_login)}}" name="background_login"   data-validation-required-message="{{trans('word.This field is required')}}"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

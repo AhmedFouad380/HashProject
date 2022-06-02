@@ -17,12 +17,9 @@ class User
      */
     public function handle(Request $request, Closure $next, $guard = null)
     {
-        if (Auth::guard("admins")->check()) {
+       if(Auth::guard("web")->check()){
             return $next($request);
-        }elseif(Auth::guard("web")->check()){
-            return $next($request);
-
         }
-        return redirect('/admin/login');
+        return redirect('/');
     }
 }
