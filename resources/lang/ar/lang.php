@@ -188,4 +188,5 @@ return [
     'AddEditDelete' => ' أضافة - تعديل - حذف  ',
     'ActiveDeactive' => ' تفعيل - تعطيل  ',
     'specific Setting' => ' صلاحيات مخصصة  ',
+    'footer_description' => 'footer description ',
 ];
