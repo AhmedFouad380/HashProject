@@ -20,6 +20,6 @@ class User
         if (Auth::guard("web")->check() || Auth::guard("admins")->check()) {
             return $next($request);
         }
-        return redirect('/');
+        return redirect('/login');
     }
 }

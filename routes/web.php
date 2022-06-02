@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\UserController;
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
 Route::get('Admin-Panel', function () {
     return redirect('inbox');
 });
