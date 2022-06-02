@@ -30,14 +30,8 @@ Route::get('/admin/login', function () {
 
 Route::POST('/UserLogin', [\App\Http\Controllers\Admin\AdminController::class, 'login']);
 Route::get('/logout', [\App\Http\Controllers\Admin\AdminController::class, 'logout']);
-Route::get('/', function () {
-    if (Auth::guard('admins')->check()) {
-        return redirect('Setting');
-    } else {
-        return redirect('inbox');
 
-    }
-});
+
 
 Route::get('lang/{lang}', function ($lang) {
 
@@ -56,6 +50,14 @@ Route::get('lang/{lang}', function ($lang) {
 
 Route::group(['middleware' => ['web', 'User']], function () {
 
+    Route::get('/', function () {
+        if (Auth::guard('admins')->check()) {
+            return redirect('Setting');
+        } else {
+            return redirect('inbox');
+
+        }
+    });
     Route::get('/Users', [UserController::class, 'index'])->middleware('Admin');
 
 
