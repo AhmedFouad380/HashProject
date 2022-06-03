@@ -190,7 +190,7 @@ return [
     'specific Setting' => ' صلاحيات مخصصة  ',
     'footer_description' => 'footer description ',
     'Synonym_Title' => 'المترادفات   ',
-    'Synonym' => 'المترادفات ',
+    'Synonym' => 'Stego ',
     'Synonym_Edit' => 'تعديل ',
     'Synonym_create' => 'اضف جديد',
     'Synonym_Delete' => 'حذف',

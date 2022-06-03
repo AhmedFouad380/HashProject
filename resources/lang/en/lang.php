@@ -191,4 +191,14 @@ return [
     'ActiveDeactive' => ' Active - Deactive  ',
     'specific Setting' => ' specific Setting  ',
 
+    'footer_description' => 'footer description ',
+    'Synonym_Title' => 'Stego   ',
+    'Synonym' => 'Stego ',
+    'Synonym_Edit' => 'edit ',
+    'Synonym_create' => 'Add',
+    'Synonym_Delete' => 'delete',
+    'synonym' => 'synonym',
+    'word' => 'word',
+
+
 ];
