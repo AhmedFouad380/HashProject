@@ -41,8 +41,13 @@ class Inbox extends Model
             if ($syn) {
                 array_push($new_message_array, $syn->synonym);
             } else {
-//                send notification to admin with $word
-
+////                send notification to admin with $word
+//                foreach ( Admin::all()  as $Admin){
+//                $Notification = new Notification();
+//                $Notification->message='برجاء اضافه مرادف لكلمه ( ' . $word . ' )';
+//                $Notification->admin_id=$Admin->id;
+//                $Notification->save();
+//                }
                 array_push($new_message_array, $word);
             }
         }

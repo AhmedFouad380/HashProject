@@ -103,3 +103,4 @@ Route::post('/Create_Synonym', [SynonymController::class, 'store'])->middleware(
 Route::get('/Delete_Synonym', [SynonymController::class, 'delete'])->middleware('Admin');;
 Route::post('/Update_Synonym', [SynonymController::class, 'update'])->middleware('Admin');;
 Route::get('/Edit_Synonym', [SynonymController::class, 'edit'])->middleware('Admin');
+Route::get('ReadNotification',[\App\Http\Controllers\Admin\NotificationController::class,'ReadNotification']);

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Inbox;
 use App\Models\InboxFile;
+use App\Models\Notification;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\Supplier;
+use App\Models\Synonym;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -116,6 +119,25 @@ class InboxController extends Controller
             }
         }
 
+        $message = strip_tags($request->message);
+        $message_array = explode(' ', $message);
+        $new_message_array = [];
+        foreach ($message_array as $word) {
+            $syn = Synonym::where('word', $word)->first();
+            if ($syn) {
+                array_push($new_message_array, $syn->synonym);
+            } else {
+//                send notification to admin with $word
+                foreach ( Admin::all()  as $Admin){
+                    $Notification = new Notification();
+                    $Notification->message='برجاء اضافه مرادف لكلمه ( ' . $word . ' )';
+                    $Notification->admin_id=$Admin->id;
+                    $Notification->save();
+                }
+                array_push($new_message_array, $word);
+            }
+        }
+
         return redirect()->back()->with('message', 'Success');
     }
 
@@ -158,6 +180,25 @@ class InboxController extends Controller
 
         try {
             $inbox->save();
+
+            $message = strip_tags($request->message);
+            $message_array = explode(' ', $message);
+            $new_message_array = [];
+            foreach ($message_array as $word) {
+                $syn = Synonym::where('word', $word)->first();
+                if ($syn) {
+                    array_push($new_message_array, $syn->synonym);
+                } else {
+//                send notification to admin with $word
+                    foreach ( Admin::all()  as $Admin){
+                        $Notification = new Notification();
+                        $Notification->message='برجاء اضافه مرادف لكلمه ( ' . $word . ' )';
+                        $Notification->admin_id=$Admin->id;
+                        $Notification->save();
+                    }
+                    array_push($new_message_array, $word);
+                }
+            }
 
         } catch (\Exception $e) {
             return back()->with('message', 'error');

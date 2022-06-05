@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $languages = ['ar', 'en'];
-        App::setLocale('en');
+        App::setLocale('ar');
         date_default_timezone_set('Asia/Riyadh');
 
 

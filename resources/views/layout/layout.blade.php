@@ -379,262 +379,138 @@
                         <div class="topbar">
                             <!--begin::Notifications-->
 
-{{--                            <div class="dropdown">--}}
-{{--                                <!--begin::Toggle-->--}}
-{{--                                <div class="topbar-item" data-toggle="dropdown"--}}
-{{--                                     data-offset="10px,0px">--}}
-{{--                                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1 pulse pulse-primary">--}}
-{{--											<span id="notification" class="svg-icon svg-icon-xl svg-icon-primary">--}}
-{{--												<!--begin::Svg Icon | path:assets/media/svg/icons/Code/Compiling.svg-->--}}
-{{--                                                  <span style="color: red;font-weight: bold;font-size: 10px;"--}}
-{{--                                                        id="counter"></span>--}}
-{{--												<svg xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"--}}
-{{--                                                     height="24px" viewBox="0 0 24 24" version="1.1">--}}
-{{--													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">--}}
-{{--														<rect x="0" y="0" width="24" height="24"/>--}}
-{{--														<path--}}
-{{--                                                            d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"--}}
-{{--                                                            fill="#000000" opacity="0.3"/>--}}
-{{--														<path--}}
-{{--                                                            d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"--}}
-{{--                                                            fill="#000000"/>--}}
-{{--													</g>--}}
-{{--												</svg>--}}
-{{--                                                <!--end::Svg Icon-->--}}
-{{--											</span>--}}
-{{--                                        <span class="pulse-ring"></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <!--end::Toggle-->--}}
-{{--                                <!--begin::Dropdown-->--}}
-{{--                                <div--}}
-{{--                                    class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">--}}
-{{--                                    <form>--}}
-{{--                                        <!--begin::Header-->--}}
-{{--                                        <div--}}
-{{--                                            class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top"--}}
-{{--                                            style="background-image: url({{asset('/dashboard/assets/media/misc/bg-1.jpg')}})">--}}
-{{--                                            <!--begin::Title-->--}}
-{{--                                            @if (Auth::guard('admins')->check())--}}
-{{--                                                <h4 class="d-flex flex-center rounded-top">--}}
-{{--                                                    <span class="text-white">{{trans('lang.Notification')}}</span>--}}
-{{--                                                </h4>--}}
-{{--                                        @endif--}}
-{{--                                        <!--end::Title-->--}}
-{{--                                            <!--begin::Tabs-->--}}
-{{--                                            <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-line-transparent-white nav-tabs-line-active-border-success mt-3 px-8"--}}
-{{--                                                role="tablist">--}}
-{{--                                                <li class="nav-item">--}}
-{{--                                                    <a class="nav-link active show" data-toggle="tab"--}}
-{{--                                                       href="#topbar_notifications_notifications">{{trans('lang.inbox')}}</a>--}}
-{{--                                                </li>--}}
-{{--                                                @if (Auth::guard('admins')->check())--}}
-{{--                                                    <li class="nav-item">--}}
-{{--                                                        <a class="nav-link" data-toggle="tab"--}}
-{{--                                                           href="#topbar_notifications_events">{{trans('lang.alerts')}}</a>--}}
-{{--                                                    </li>--}}
-{{--                                                @endif--}}
-{{--                                                @if (Auth::guard('admins')->check())--}}
-{{--                                                    <li class="nav-item">--}}
-{{--                                                        <a class="nav-link" data-toggle="tab"--}}
-{{--                                                           href="#topbar_notifications_logs">{{trans('lang.logins')}}</a>--}}
-{{--                                                    </li>--}}
-{{--                                                @endif--}}
-{{--                                            </ul>--}}
-{{--                                            <!--end::Tabs-->--}}
-{{--                                        </div>--}}
-{{--                                        <!--end::Header-->--}}
-{{--                                        <!--begin::Content-->--}}
-{{--                                        <div class="tab-content">--}}
-{{--                                            <!--begin::Tabpane-->--}}
-{{--                                            <div class="tab-pane show p-8 active"--}}
-{{--                                                 id="topbar_notifications_notifications" role="tabpanel">--}}
-{{--                                                <!--begin::Scroll-->--}}
-{{--                                                <div class="scroll pr-7 mr-n7 ps ps--active-y" data-scroll="true"--}}
-{{--                                                     data-height="300" data-mobile-height="200" id="append-firebase"--}}
-{{--                                                     style="height: 300px; overflow: hidden;">--}}
+
+                            @if(Auth::guard('admins')->check())
+                            <div class="dropdown ">
+                                <!--begin::Toggle-->
+                                <div class="topbar-item notification" data-toggle="dropdown"
+                                     data-offset="10px,0px">
+                                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1 pulse pulse-primary">
+											<span id="notification" class="svg-icon svg-icon-xl  @if(\App\Models\Notification::where('admin_id',Auth::guard('admins')->id())->where('is_read','0')->count() > 0  ) svg-icon-danger @else svg-icon-primary @endif">
+												<!--begin::Svg Icon | path:assets/media/svg/icons/Code/Compiling.svg-->
+                                                  <span style="color: red;font-weight: bold;font-size: 10px;"
+                                                        id="counter"></span>
+												<svg xmlns="http://www.w3.org/2000/svg"
+                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                                     height="24px" viewBox="0 0 24 24" version="1.1">
+													<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+														<rect x="0" y="0" width="24" height="24"/>
+														<path
+                                                            d="M2.56066017,10.6819805 L4.68198052,8.56066017 C5.26776695,7.97487373 6.21751442,7.97487373 6.80330086,8.56066017 L8.9246212,10.6819805 C9.51040764,11.267767 9.51040764,12.2175144 8.9246212,12.8033009 L6.80330086,14.9246212 C6.21751442,15.5104076 5.26776695,15.5104076 4.68198052,14.9246212 L2.56066017,12.8033009 C1.97487373,12.2175144 1.97487373,11.267767 2.56066017,10.6819805 Z M14.5606602,10.6819805 L16.6819805,8.56066017 C17.267767,7.97487373 18.2175144,7.97487373 18.8033009,8.56066017 L20.9246212,10.6819805 C21.5104076,11.267767 21.5104076,12.2175144 20.9246212,12.8033009 L18.8033009,14.9246212 C18.2175144,15.5104076 17.267767,15.5104076 16.6819805,14.9246212 L14.5606602,12.8033009 C13.9748737,12.2175144 13.9748737,11.267767 14.5606602,10.6819805 Z"
+                                                            fill="#000000" opacity="0.3"/>
+														<path
+                                                            d="M8.56066017,16.6819805 L10.6819805,14.5606602 C11.267767,13.9748737 12.2175144,13.9748737 12.8033009,14.5606602 L14.9246212,16.6819805 C15.5104076,17.267767 15.5104076,18.2175144 14.9246212,18.8033009 L12.8033009,20.9246212 C12.2175144,21.5104076 11.267767,21.5104076 10.6819805,20.9246212 L8.56066017,18.8033009 C7.97487373,18.2175144 7.97487373,17.267767 8.56066017,16.6819805 Z M8.56066017,4.68198052 L10.6819805,2.56066017 C11.267767,1.97487373 12.2175144,1.97487373 12.8033009,2.56066017 L14.9246212,4.68198052 C15.5104076,5.26776695 15.5104076,6.21751442 14.9246212,6.80330086 L12.8033009,8.9246212 C12.2175144,9.51040764 11.267767,9.51040764 10.6819805,8.9246212 L8.56066017,6.80330086 C7.97487373,6.21751442 7.97487373,5.26776695 8.56066017,4.68198052 Z"
+                                                            fill="#000000"/>
+													</g>
+												</svg>
+                                                <!--end::Svg Icon-->
+											</span>
+                                        <span class="pulse-ring"></span>
+                                    </div>
+                                </div>
+                                <!--end::Toggle-->
+                                <!--begin::Dropdown-->
+                                <div
+                                    class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
+                                    <form>
+                                        <!--begin::Header-->
+                                        <div
+                                            class="d-flex flex-column pt-12 bgi-size-cover bgi-no-repeat rounded-top"
+                                            style="background-image: url({{asset('/dashboard/assets/media/misc/bg-1.jpg')}})">
+                                            <!--begin::Title-->
+                                            @if (Auth::guard('admins')->check())
+                                                <h4 class="d-flex flex-center rounded-top">
+                                                    <span class="text-white">{{trans('lang.Notification')}} {{  ( \App\Models\Notification::where('admin_id',Auth::guard('admins')->id())->OrderBy('id','desc')->count() ) }}</span>
+                                                </h4>
+                                        @endif
+                                        <!--end::Title-->
+                                            <!--begin::Tabs-->
+                                            <ul class="nav nav-bold nav-tabs nav-tabs-line nav-tabs-line-3x nav-tabs-line-transparent-white nav-tabs-line-active-border-success mt-3 px-8"
+                                                role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active show" data-toggle="tab"
+                                                       href="#topbar_notifications_notifications">{{trans('lang.inbox')}}</a>
+                                                </li>
+
+                                            </ul>
+                                            <!--end::Tabs-->
+                                        </div>
+                                        <!--end::Header-->
+                                        <!--begin::Content-->
+                                        <div class="tab-content">
+                                            <!--begin::Tabpane-->
+                                            <!--end::Tabpane-->
+                                            <!--begin::Tabpane-->
+                                            @if (Auth::guard('admins')->check())
+
+                                            <div class="tab-pane show p-8 active"
+                                                 id="topbar_notifications_notifications" role="tabpanel">
+                                                <!--begin::Scroll-->
+                                                <div class="scroll pr-7 mr-n7 ps ps--active-y" data-scroll="true"
+                                                     data-height="300" data-mobile-height="200" id="append-firebase"
+                                                     style="height: 300px; overflow: hidden;">
 
 
-{{--                                                --}}{{----}}{{--                                                        appends here the notidication                    --}}
-{{--                                                --}}{{----}}{{--                                                       @endif--}}
+                                                    @foreach(\App\Models\Notification::where('admin_id',Auth::guard('admins')->id())->OrderBy('id','desc')->get() as $Notif)
+                                                    <div class="d-flex align-items-center mb-6">
+                                                        <div class="symbol symbol-40 symbol-light-danger mr-5">
+                                                                                                             <span class="symbol-label">
+                                                                                                                     <span class="svg-icon svg-icon-lg svg-icon-danger">
+                                                                                                                     <svg xmlns="http://www.w3.org/2000/svg"
+                                                                                                                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                                                                          width="24px" height="24px" viewBox="0 0 24 24"
+                                                                                                                          version="1.1">
+                                                                                                                     <g stroke="none" stroke-width="1" fill="none"
+                                                                                                                        fill-rule="evenodd">
+                                                                                                                     <rect x="0" y="0" width="24" height="24"></rect>
+                                                                                                                     <path
+                                                                                                                         d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"
+                                                                                                                         fill="#000000"></path>
+                                                                                                                     <circle fill="#000000" opacity="0.3" cx="19.5"
+                                                                                                                             cy="17.5" r="2.5"></circle>
+                                                                                                                     </g>
+                                                                                                                     </svg>
+                                                                                                                    </span>
+                                                                                                                    </span>
+                                                        </div>
+                                                        <div class="d-flex flex-column font-weight-bold">
+                                                            <a href="#"
+                                                                   class="text-dark text-hover-primary mb-1 font-size-lg">{{$Notif->message}}</a>
+                                                            <span class="text-muted">
+                                                                                                             </span>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
 
-{{--                                                --}}{{----}}{{--                                                    <div class="d-flex align-items-center mb-6">--}}
-{{--                                                --}}{{----}}{{--                                                        <div class="symbol symbol-40 symbol-light-danger mr-5">--}}
-{{--                                                --}}{{----}}{{--                                                             <span class="symbol-label">--}}
-{{--                                                --}}{{----}}{{--                                                                     <span class="svg-icon svg-icon-lg svg-icon-danger">--}}
-{{--                                                --}}{{----}}{{--                                                                     <svg xmlns="http://www.w3.org/2000/svg"--}}
-{{--                                                --}}{{----}}{{--                                                                          xmlns:xlink="http://www.w3.org/1999/xlink"--}}
-{{--                                                --}}{{----}}{{--                                                                          width="24px" height="24px" viewBox="0 0 24 24"--}}
-{{--                                                --}}{{----}}{{--                                                                          version="1.1">--}}
-{{--                                                --}}{{----}}{{--                                                                     <g stroke="none" stroke-width="1" fill="none"--}}
-{{--                                                --}}{{----}}{{--                                                                        fill-rule="evenodd">--}}
-{{--                                                --}}{{----}}{{--                                                                     <rect x="0" y="0" width="24" height="24"></rect>--}}
-{{--                                                --}}{{----}}{{--                                                                     <path--}}
-{{--                                                --}}{{----}}{{--                                                                         d="M21,12.0829584 C20.6747915,12.0283988 20.3407122,12 20,12 C16.6862915,12 14,14.6862915 14,18 C14,18.3407122 14.0283988,18.6747915 14.0829584,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,8 C3,6.8954305 3.8954305,6 5,6 L19,6 C20.1045695,6 21,6.8954305 21,8 L21,12.0829584 Z M18.1444251,7.83964668 L12,11.1481833 L5.85557487,7.83964668 C5.4908718,7.6432681 5.03602525,7.77972206 4.83964668,8.14442513 C4.6432681,8.5091282 4.77972206,8.96397475 5.14442513,9.16035332 L11.6444251,12.6603533 C11.8664074,12.7798822 12.1335926,12.7798822 12.3555749,12.6603533 L18.8555749,9.16035332 C19.2202779,8.96397475 19.3567319,8.5091282 19.1603533,8.14442513 C18.9639747,7.77972206 18.5091282,7.6432681 18.1444251,7.83964668 Z"--}}
-{{--                                                --}}{{----}}{{--                                                                         fill="#000000"></path>--}}
-{{--                                                --}}{{----}}{{--                                                                     <circle fill="#000000" opacity="0.3" cx="19.5"--}}
-{{--                                                --}}{{----}}{{--                                                                             cy="17.5" r="2.5"></circle>--}}
-{{--                                                --}}{{----}}{{--                                                                     </g>--}}
-{{--                                                --}}{{----}}{{--                                                                     </svg>--}}
-{{--                                                --}}{{----}}{{--                                                                    </span>--}}
-{{--                                                --}}{{----}}{{--                                                                    </span>--}}
-{{--                                                --}}{{----}}{{--                                                        </div>--}}
-{{--                                                --}}{{----}}{{--                                                        <div class="d-flex flex-column font-weight-bold">--}}
-{{--                                                --}}{{----}}{{--                                                            <a href="/inbox/{{$single_inbox->id}}"--}}
-{{--                                                --}}{{----}}{{--                                                               class="text-dark text-hover-primary mb-1 font-size-lg">{{__("lang.NewInbox")}}</a>--}}
-{{--                                                --}}{{----}}{{--                                                            <span class="text-muted">--}}
-{{--                                                --}}{{----}}{{--                                                             </span>--}}
-{{--                                                --}}{{----}}{{--                                                        </div>--}}
-{{--                                                --}}{{----}}{{--                                                    </div>--}}
+                                                    <!--end::Item-->
+                                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
+                                                        <div class="ps__thumb-x" tabindex="0"
+                                                             style="left: 0px; width: 0px;"></div>
+                                                    </div>
+                                                    <div class="ps__rail-y"
+                                                         style="top: 0px; right: 0px; height: 300px;">
+                                                        <div class="ps__thumb-y" tabindex="0"
+                                                             style="top: 0px; height: 205px;"></div>
+                                                    </div>
+                                                </div>
 
+                                            </div>
 
-{{--                                                <!--end::Item-->--}}
-{{--                                                    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">--}}
-{{--                                                        <div class="ps__thumb-x" tabindex="0"--}}
-{{--                                                             style="left: 0px; width: 0px;"></div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="ps__rail-y"--}}
-{{--                                                         style="top: 0px; right: 0px; height: 300px;">--}}
-{{--                                                        <div class="ps__thumb-y" tabindex="0"--}}
-{{--                                                             style="top: 0px; height: 205px;"></div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
+                                                <!--end::Tabpane-->
+                                            @endif
 
-{{--                                            </div>--}}
-{{--                                            <!--end::Tabpane-->--}}
-{{--                                            <!--begin::Tabpane-->--}}
-{{--                                            @if (Auth::guard('admins')->check())--}}
-{{--                                                <div class="tab-pane" id="topbar_notifications_events" role="tabpanel">--}}
-{{--                                                    <!--begin::Nav-->--}}
-{{--                                                    <div class="navi navi-hover scroll my-4 ps" data-scroll="true"--}}
-{{--                                                         data-height="300" data-mobile-height="200"--}}
-{{--                                                         style="height: 300px; overflow: hidden;">--}}
-{{--                                                        <!--begin::Item-->--}}
-{{--                                                    <!--end::Item-->--}}
-{{--                                                        <!--begin::Item-->--}}
-
-{{--                                                        <!--end::Item-->--}}
-{{--                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">--}}
-{{--                                                            <div class="ps__thumb-x" tabindex="0"--}}
-{{--                                                                 style="left: 0px; width: 0px;"></div>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="ps__rail-y"--}}
-{{--                                                             style="top: 0px; right: 0px; height: 300px;">--}}
-{{--                                                            <div class="ps__thumb-y" tabindex="0"--}}
-{{--                                                                 style="top: 0px; height: 109px;"></div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <!--end::Nav-->--}}
-{{--                                                </div>--}}
-{{--                                                <!--end::Tabpane-->--}}
-{{--                                            @endif--}}
-{{--                                            @if (Auth::guard('admins')->check())--}}
-{{--                                            <!--begin::Tabpane-->--}}
-{{--                                                <div class="tab-pane" id="topbar_notifications_logs" role="tabpanel">--}}
-{{--                                                    <!--begin::Nav-->--}}
-{{--                                                    <div class="navi navi-hover scroll my-4 ps" data-scroll="true"--}}
-{{--                                                         data-height="300" data-mobile-height="200"--}}
-{{--                                                         style="height: 300px; overflow: hidden;">--}}
-{{--                                                        <!--begin::Item-->--}}
-{{--                                                    <!--end::Item-->--}}
-{{--                                                        <!--begin::Item-->--}}
-
-{{--                                                        <!--end::Item-->--}}
-{{--                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;">--}}
-{{--                                                            <div class="ps__thumb-x" tabindex="0"--}}
-{{--                                                                 style="left: 0px; width: 0px;"></div>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="ps__rail-y"--}}
-{{--                                                             style="top: 0px; right: 0px; height: 300px;">--}}
-{{--                                                            <div class="ps__thumb-y" tabindex="0"--}}
-{{--                                                                 style="top: 0px; height: 109px;"></div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <!--end::Nav-->--}}
-{{--                                                </div>--}}
-{{--                                                <!--end::Tabpane-->--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
-{{--                                        <!--end::Content-->--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
-{{--                                <!--end::Dropdown-->--}}
-{{--                            </div>--}}
+                                        </div>
+                                        <!--end::Content-->
+                                    </form>
+                                </div>
+                                <!--end::Dropdown-->
+                            </div>
+                            @endif
 
                             <!--end::Notifications-->
 
-{{--                            <!--begin::Languages-->--}}
-{{--                            <div class="dropdown">--}}
-{{--                                <!--begin::Toggle-->--}}
-{{--                                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px">--}}
-{{--                                    <div class="btn btn-icon btn-clean btn-dropdown btn-lg mr-1">--}}
-{{--                                        @if(session('lang') == 'ar')--}}
-{{--                                            <img class="h-20px w-20px rounded-sm"--}}
-{{--                                                 src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"--}}
-{{--                                                 alt=""/>--}}
-{{--                                        @else--}}
-{{--                                            <img class="h-20px w-20px rounded-sm"--}}
-{{--                                                 src="{{asset('/dashboard/assets/media/flags/020-flag.svg')}}"--}}
-{{--                                                 alt=""/>--}}
-{{--                                        @endif--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <!--end::Toggle-->--}}
-{{--                                <!--begin::Dropdown-->--}}
-{{--                                <div--}}
-{{--                                    class="dropdown-menu p-0 m-0 dropdown-menu-anim-up dropdown-menu-sm dropdown-menu-right">--}}
-{{--                                    <!--begin::Nav-->--}}
-{{--                                    <ul class="navi navi-hover py-4">--}}
-
-{{--                                        <li class="navi-item">--}}
-{{--                                            @if(session('lang') == 'en')--}}
-{{--                                                <a href="{{url('lang/ar')}}" class="navi-link">--}}
-{{--                                            <span class="symbol symbol-20 mr-3">--}}
-
-{{--                                                    <img--}}
-{{--                                                        src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"--}}
-{{--                                                        alt=""/>--}}
-
-{{--                                            </span>--}}
-{{--                                                    العربية--}}
-
-{{--                                                </a>--}}
-{{--                                            @elseif(session('lang') == 'ar')--}}
-{{--                                                <a href="{{url('lang/en')}}" class="navi-link">--}}
-{{--                                            <span class="symbol symbol-20 mr-3">--}}
-{{--                                                 <img--}}
-{{--                                                     src="{{asset('/dashboard/assets/media/flags/020-flag.svg')}}"--}}
-{{--                                                     alt=""/>--}}
-
-{{--                                            </span>--}}
-
-{{--                                                    English--}}
-{{--                                                </a>--}}
-
-{{--                                            @else--}}
-{{--                                                <a href="{{url('lang/ar')}}" class="navi-link">--}}
-{{--                                            <span class="symbol symbol-20 mr-3">--}}
-
-{{--                                                    <img--}}
-{{--                                                        src="{{asset('/dashboard/assets/media/flags/008-saudi-arabia.svg')}}"--}}
-{{--                                                        alt=""/>--}}
-
-{{--                                            </span>--}}
-
-
-{{--                                                </a>--}}
-
-{{--                                            @endif--}}
-{{--                                        </li>--}}
-
-{{--                                    </ul>--}}
-{{--                                    <!--end::Nav-->--}}
-{{--                                </div>--}}
-{{--                                <!--end::Dropdown-->--}}
-{{--                            </div>--}}
-{{--                            <!--end::Languages-->--}}
+                            <!--begin::Languages-->
+                            <!--end::Languages-->
                             <!--begin::User-->
                             <div class="topbar-item">
                                 <div
@@ -938,7 +814,19 @@
         @yield('js')
         <script src="{{asset('dashboard/assets/js/pages/features/miscellaneous/sweetalert2.js')}}"></script>
 
+        <script>
+            $('#notification').on('click',function () {
+                $.ajax({
+                    type: "get",
+                    url: "{{url('ReadNotification')}}",
+                    data: {},
+                    success: function (data) {
+                    console.log('ReadNotification ')
+                    }
+                })
 
+            })
+        </script>
         <?php
         $errors = session()->get("errors");
         ?>
