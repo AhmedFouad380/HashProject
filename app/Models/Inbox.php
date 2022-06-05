@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Str;
 
 
 class Inbox extends Model
@@ -40,14 +41,31 @@ class Inbox extends Model
             if ($syn) {
                 array_push($new_message_array, $syn->synonym);
             } else {
+//                send notification to admin with $word
+
                 array_push($new_message_array, $word);
             }
         }
 
+
         $new_message = implode(' ', $new_message_array);
-        return $new_message;
+
+        $Ascii = $this->string_to_ascii($new_message);
+
+        return $Ascii;
     }
 
+    function string_to_ascii($string)
+    {
+        $ascii = NULL;
+
+        for ($i = 0; $i < strlen($string); $i++)
+        {
+            $ascii = $ascii . " " .ord($string[$i]);
+        }
+
+        return($ascii);
+    }
 
     public function files()
     {
@@ -109,7 +127,6 @@ class Inbox extends Model
     public function getMessageAttribute($Message)
     {
         $decrypt = Crypt::decryptString($Message);
-
         return $decrypt;
     }
 
@@ -117,7 +134,6 @@ class Inbox extends Model
     {
 
         $encrypted = Crypt::encryptString($Message);
-
         $this->attributes['message'] = $encrypted;
 
 
