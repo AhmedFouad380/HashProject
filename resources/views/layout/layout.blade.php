@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-@if(session('lang') == 'en')
+{{--@if(session('lang') == 'en')--}}
     <html lang="en">
-    @else
-
-        <html direction="rtl" dir="rtl" style="direction: rtl">
-        @endif
+{{--        @else --}}
+{{--        <html direction="rtl" dir="rtl" style="direction: rtl">--}}
+{{--        @endif--}}
         <head>
             <base href="">
             <meta charset="utf-8"/>
@@ -20,25 +19,25 @@
             <!--end::Fonts-->
             <link rel="shortcut icon" href="{{asset('dashboard/A icon-01.png')}}"/>
 
-            @if(session('lang') == 'ar')
-                <link href="{{asset('dashboard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}"
-                      rel="stylesheet" type="text/css"/>
+{{--            @if(session('lang') == 'ar')--}}
+{{--                <link href="{{asset('dashboard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}"--}}
+{{--                      rel="stylesheet" type="text/css"/>--}}
 
-                <link href="{{asset('dashboard/assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}"
-                      rel="stylesheet" type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css"/>
+{{--                <link href="{{asset('dashboard/assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}"--}}
+{{--                      rel="stylesheet" type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css"/>--}}
 
-                <link href="{{asset('dashboard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/themes/layout/brand/dark.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/themes/layout/aside/dark.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-            @elseif(session('lang') == 'en')
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/brand/dark.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/aside/dark.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--            @elseif(session('lang') == 'en')--}}
                 <link href="{{asset('dashboard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css')}}"
                       rel="stylesheet" type="text/css"/>
 
@@ -56,25 +55,25 @@
                       type="text/css"/>
                 <link href="{{asset('dashboard/assets/css/themes/layout/aside/dark.css')}}" rel="stylesheet"
                       type="text/css"/>
-            @else
-                <link href="{{asset('dashboard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}"
-                      rel="stylesheet" type="text/css"/>
+{{--            @else--}}
+{{--                <link href="{{asset('dashboard/assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css')}}"--}}
+{{--                      rel="stylesheet" type="text/css"/>--}}
 
-                <link href="{{asset('dashboard/assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}"
-                      rel="stylesheet" type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css"/>
+{{--                <link href="{{asset('dashboard/assets/plugins/global/plugins.bundle.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/plugins/custom/prismjs/prismjs.bundle.rtl.css')}}"--}}
+{{--                      rel="stylesheet" type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/style.bundle.rtl.css')}}" rel="stylesheet" type="text/css"/>--}}
 
-                <link href="{{asset('dashboard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/themes/layout/brand/dark.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-                <link href="{{asset('dashboard/assets/css/themes/layout/aside/dark.rtl.css')}}" rel="stylesheet"
-                      type="text/css"/>
-            @endif
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/header/base/light.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/header/menu/light.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/brand/dark.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--                <link href="{{asset('dashboard/assets/css/themes/layout/aside/dark.rtl.css')}}" rel="stylesheet"--}}
+{{--                      type="text/css"/>--}}
+{{--            @endif--}}
             @yield('css')
         </head>
 
