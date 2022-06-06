@@ -197,7 +197,7 @@ return [
     'Synonym_Edit' => 'edit ',
     'Synonym_create' => 'Add',
     'Synonym_Delete' => 'delete',
-    'synonym' => 'synonym',
+    'synonym' => 'stego',
     'word' => 'word',
 
 
