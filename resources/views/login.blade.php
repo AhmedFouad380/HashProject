@@ -89,7 +89,7 @@
                                     </label>
                                 </div>
 								<!--begin::Action-->
-								<div class="pb-lg-0 pb-5">
+								<div class="pb-lg-0 pb-10">
 									<button type="submit" id="kt_login_singin_form_submit_button" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">تسجيل</button>
                                 </div>
 								<!--end::Action-->
@@ -103,7 +103,7 @@
 				<!--begin::Content-->
 				<!--begin::Aside-->
 				<div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right"
-                     style="width: 858px;background-size:cover; background-image: url({{\App\Models\Setting::find(1)->background_login}});">
+                     style="width: 1000px;background-size:cover; background-image: url({{\App\Models\Setting::find(1)->background_login}});">
 					<div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" >
 						<!--begin::Aside title-->
 						<!--end::Aside title-->
