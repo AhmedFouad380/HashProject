@@ -102,7 +102,8 @@
 				</div>
 				<!--begin::Content-->
 				<!--begin::Aside-->
-				<div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right" style="background-size:cover; background-image: url({{\App\Models\Setting::find(1)->background_login}});">
+				<div class="login-aside order-1 order-lg-2 bgi-no-repeat bgi-position-x-right"
+                     style="width: 858px;background-size:cover; background-image: url({{\App\Models\Setting::find(1)->background_login}});">
 					<div class="login-conteiner bgi-no-repeat bgi-position-x-right bgi-position-y-bottom" >
 						<!--begin::Aside title-->
 						<!--end::Aside title-->
