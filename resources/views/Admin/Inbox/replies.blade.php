@@ -154,7 +154,7 @@
                                             <div>
                                                 <span class="message_new" id="message">{!! $Users->message  !!}</span>
                                                 <span onmouseout="bigImg(this)" class="hashed_message"
-                                                      style="display: none;direction: ltr;text-align: left">{!! $Users->hashed_message  !!} </span>
+                                                      style="display: none;direction: ltr;text-align: left">{!! $Users->hashed_message  !!}  <br>  {{$Users->line_num}} </span>
 
                                             </div>
                                             <br>

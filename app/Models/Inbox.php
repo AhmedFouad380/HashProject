@@ -29,7 +29,7 @@ class Inbox extends Model
     ];
 
 
-    protected $appends = ['hashed_message'];
+    protected $appends = ['hashed_message' ,'line_num'];
 
     public function getHashedMessageAttribute()
     {
@@ -58,6 +58,28 @@ class Inbox extends Model
         $Ascii = $this->string_to_ascii($new_message);
 
         return $Ascii;
+    }
+    public function getLineNumAttribute()
+    {
+        $message = strip_tags($this->message);
+        $message_array = explode(' ', $message);
+        $new_message_array = [];
+        foreach ($message_array as $word) {
+            $syn = Synonym::where('word', $word)->first();
+            if ($syn) {
+                array_push($new_message_array, $syn->line_num);
+            } else {
+////
+                array_push($new_message_array, $word);
+            }
+        }
+
+
+        $new_message = implode(' ', $new_message_array);
+
+
+
+        return $new_message;
     }
 
     function string_to_ascii($string)

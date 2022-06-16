@@ -29,6 +29,7 @@ class SynonymController extends Controller
         $this->validate(request(), [
             'word' => 'required|string|unique:synonyms',
             'synonym' => 'required',
+            'line_num' => 'required',
 
 
         ]);
@@ -71,6 +72,7 @@ class SynonymController extends Controller
         $this->validate(request(), [
             'word' => 'required|string|unique:synonyms,word,' . $request->id,
             'synonym' => 'required',
+            'line_num' => 'required',
 
         ]);
 
