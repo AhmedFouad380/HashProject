@@ -106,6 +106,7 @@
                             <th class="headerr">#</th>
                             <th class="headerr">{{__('lang.word')}} </th>
                             <th class="headerr">{{__('lang.synonym')}} </th>
+                            <th class="headerr">{{__('lang.line_num')}} </th>
 
                             <th class="headerr"> {{__('lang.Synonym_Edit')}}  </th>
 
@@ -121,6 +122,7 @@
 
                                 <td>{{$User->word}}</td>
                                 <td>{{$User->synonym}}</td>
+                                <td>{{$User->line_num}}</td>
 
 
                                 <td>
