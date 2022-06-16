@@ -196,5 +196,5 @@ return [
     'Synonym_Delete' => 'حذف',
     'synonym' => 'المرادف',
     'word' => 'الكلمة',
-
+    'line_num'=>'رقم السطر و الكلمة',
 ];

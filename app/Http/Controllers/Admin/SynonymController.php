@@ -36,7 +36,7 @@ class SynonymController extends Controller
         $User = new Synonym;
         $User->word = $request->word;
         $User->synonym = $request->synonym;
-
+        $User->line_num=$request->line_num;
         try {
             $User->save();
 
@@ -78,6 +78,7 @@ class SynonymController extends Controller
         $User = Synonym::find($request->id);
         $User->word = $request->word;
         $User->synonym = $request->synonym;
+        $User->line_num=$request->line_num;
 
 
         try {

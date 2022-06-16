@@ -199,6 +199,7 @@ return [
     'Synonym_Delete' => 'delete',
     'synonym' => 'stego',
     'word' => 'word',
+    'line_num'=>'line and word number',
 
 
 ];

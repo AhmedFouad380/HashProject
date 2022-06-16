@@ -12,6 +12,11 @@
                             <input type="text" class="form-control form-control-solid" name="synonym" value="{{$User->synonym}}"   required placeholder="{{__('lang.phone')}}" >
                         </div>
 
+                        <div class="form-group">
+                            <label>{{__('lang.line_num')}} </label>
+                            <input type="text" class="form-control form-control-solid"  value="{{$User->line_num}}"  name="line_num" required
+                                   placeholder="{{__('lang.line_num')}}">
+                        </div>
 
 
                         <div class="modal-footer">

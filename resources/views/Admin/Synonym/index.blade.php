@@ -220,7 +220,11 @@
                             <input type="text" class="form-control form-control-solid" name="synonym" required
                                    placeholder="{{__('lang.synonym')}}">
                         </div>
-
+                        <div class="form-group">
+                            <label>{{__('lang.line_num')}} </label>
+                            <input type="text" class="form-control form-control-solid" name="line_num" required
+                                   placeholder="{{__('lang.line_num')}}">
+                        </div>
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
